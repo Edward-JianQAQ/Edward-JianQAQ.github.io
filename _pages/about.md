@@ -24,7 +24,7 @@ Work experience
   * Mentor: I feel very fortunate to work with [Sai Rajeswar](https://sairajeswar.com/) and [Joao Monteiro](https://joaomonteirof.github.io/)
 
 * Research Assitant @ [City University of Hong Kong](https://www.ds.cityu.edu.hk/) & Hong Kong Institute of Data Science, 2021.10 - 2022.07.
-  * Working on non-convex/submodular optimization and data mining. The Works accepted by CIKM 2023 AND IEEE BigData 2023.
+  * Working on non-convex/submodular optimization and data mining. The Works accepted by CIKM 2023 and IEEE BigData 2023.
   * Supervisor: Prof. [Yu Yang](https://yuyangcs.github.io/)
 
 * Teaching Assistant @ [University of Waterloo](https://cs.uwaterloo.ca/), 2022.09 - now.
