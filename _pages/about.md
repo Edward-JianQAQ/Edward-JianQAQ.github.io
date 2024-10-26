@@ -30,6 +30,11 @@ Work experience
 * Teaching Assistant @ [University of Waterloo](https://cs.uwaterloo.ca/), 2022.09 - now.
   * Working as a teaching assistant for courses related to database.
 
+Publications
+======
+Please find my full set of publications on my [Google Scholar page](https://scholar.google.ca/citations?hl=en&user=kq17trAAAAAJ).
+
+
 <!--
 Publications
 ======
