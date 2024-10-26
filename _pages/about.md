@@ -1,6 +1,6 @@
 ---
 permalink: /
-title: "Home - Xiangru Jian"
+title: "Xiangru (Edward) Jian"
 author_profile: true
 redirect_from: 
   - /about/
