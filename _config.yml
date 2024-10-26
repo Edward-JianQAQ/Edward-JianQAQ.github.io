@@ -8,7 +8,7 @@
 
 # Basic Site Settings
 locale                   : "en-US"
-title                    : "Xiangru Jian / Personal Website"
+title                    : "Xiangru Jian"
 title_separator          : "-"
 name                     : &name "Xiangru Jian"
 description              : &description "personal description"
@@ -21,7 +21,7 @@ repository               : "Edward-JianQAQ/Edward-JianQAQ.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "profile.png"
+  avatar           : "xiangru_portrait.png"
   name             : "Xiangru (Edward) Jian"
   pronouns         : # example: "she/her"  
   bio              : "PhD in CS @ UWaterloo, working on LLM and DB"
