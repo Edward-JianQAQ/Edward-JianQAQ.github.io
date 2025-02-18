@@ -20,7 +20,7 @@ Education
 Work experience
 ======
 * Research Intern @ [ServiceNow Research](https://www.servicenow.com/research/author/xiangru-jian.html), 2024.04 - now.
-  * Working on the vision-language model (VLM) for text-rich documents. The work is accepted by [RBFM workshop](https://asu-apg.github.io/rbfm/) @ Neurips 2024 and submitted to ICLR 2025.
+  * Working on the vision-language model (VLM) for text-rich documents. The work is accepted by [RBFM workshop](https://asu-apg.github.io/rbfm/) @ Neurips 2024 and accepted by [ICLR 2025](https://openreview.net/forum?id=b1ivBPLb1n).
   * Mentor: I feel very fortunate to work with [Sai Rajeswar](https://sairajeswar.com/) and [Joao Monteiro](https://joaomonteirof.github.io/)
 
 * Research Assitant @ [City University of Hong Kong](https://www.ds.cityu.edu.hk/) & Hong Kong Institute of Data Science, 2021.10 - 2022.07.
