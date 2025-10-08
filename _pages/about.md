@@ -21,7 +21,7 @@ Education
 
 News
 ======
-* **[Sept 2025]** Three papers accepted by **NeurIPS 2025**: "[Paper2Poster: Towards Multimodal Poster Automation from Scientific Papers](https://arxiv.org/abs/2406.02365)" (Oral at MAS Workshop ICML 2025, 2.4k⭐ on GitHub), "The Underappreciated Power of Vision Models for Graph Structural Understanding", and "AlignVLM: Aligning Vision-Language Models for Improved Document Understanding"
+* **[Sept 2025]** Three papers accepted by **NeurIPS 2025**: "[Paper2Poster: Towards Multimodal Poster Automation from Scientific Papers](https://arxiv.org/abs/2406.02365)" (Oral at MAS Workshop ICML 2025, 2.6k⭐ on GitHub), "The Underappreciated Power of Vision Models for Graph Structural Understanding", and "AlignVLM: Aligning Vision-Language Models for Improved Document Understanding"
 * **[May 2025]** Paper "[UI-Vision: A Desktop-centric GUI Benchmark for Visual Perception and Interaction](https://ui-vision.github.io/)" accepted by **ICML 2025**
 * **[Jan 2025]** Paper "[BigDocs: An Open Dataset for Training Multimodal Models on Document and Code Tasks](https://bigdocs-bench.github.io/)" accepted by **ICLR 2025**
 * **[Jan 2025]** Paper "Rethinking Spectral Augmentation for Contrast-based Graph Self-Supervised Learning" accepted by **TMLR 2025**
