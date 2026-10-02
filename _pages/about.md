@@ -9,7 +9,7 @@ redirect_from:
 
 **[📄 Download my CV](../files/CV_Xiangru_Jian_latest.pdf)** Please feel free to [contact me](mailto:xiangru.jian@uwaterloo.ca) for the latest version of my CV.
 
-**I am on the job market for tenure-track assistant professor, postdoctoral researcher, and industry research scientist positions.** I expect to complete my Ph.D. in May 2027. Please feel free to contact me at [xiangru.jian@uwaterloo.ca](mailto:xiangru.jian@uwaterloo.ca).
+<strong style="color: #c62828;">I am on the job market for tenure-track assistant professor, postdoctoral researcher, and industry research scientist positions.</strong> I expect to complete my Ph.D. in May 2027. Please feel free to contact me at [xiangru.jian@uwaterloo.ca](mailto:xiangru.jian@uwaterloo.ca).
 
 I am a Ph.D. student in the [Data Systems Group](https://uwaterloo.ca/data-systems-group/) at the [David R. Cheriton School of Computer Science](https://cs.uwaterloo.ca/) at the University of Waterloo, advised by Prof. [M. Tamer Özsu](https://cs.uwaterloo.ca/~tozsu/). My research focuses on **multimodal and agentic data management**, including natural language interfaces for databases, complex analytical tasks over heterogeneous federated systems, computer-use agents, and multimodal learning. My tentative thesis is **A Multi-Agent Architecture for Complex Analytical Tasks over Heterogeneous Federated Systems**. I was a research intern at Salesforce AI Research (May–August 2026) and a visiting researcher at ServiceNow Research (April 2024–May 2025). I received my master's degree in Data Science from [City University of Hong Kong](https://www.ds.cityu.edu.hk/), advised by Prof. [Yu Yang](https://yuyangcs.github.io/), working on data mining and graph learning. I am a big fan of [Manchester City FC](https://www.mancity.com/).
 
@@ -29,7 +29,7 @@ Education
 News
 ======
 * **[Sept 2026]** Our paper "RA-SQL: Relational Algebra as Deterministic Chain-of-Thought for Natural Language to SQL" accepted by **SIGMOD 2027**. Thank all the co-authors for the nice work!
-* **[2026]** Our paper "[TRL-Bench: Standardizing Cross-Paradigm Representation-Level Evaluation of Tabular Encoders](https://arxiv.org/abs/2606.09323)" accepted by **NeurIPS 2026 Datasets and Benchmarks Track**. [Project site](https://logo-cuhksz.github.io/trl-bench.github.io/).
+* **[Sept 2026]** Our paper "[TRL-Bench: Standardizing Cross-Paradigm Representation-Level Evaluation of Tabular Encoders](https://arxiv.org/abs/2606.09323)" accepted by **NeurIPS 2026 Datasets and Benchmarks Track**. [Project site](https://logo-cuhksz.github.io/trl-bench.github.io/).
 * **[Sept 2026]** Our paper "[FORGE: Fine-grained Multimodal Evaluation for Manufacturing Scenarios](https://arxiv.org/abs/2604.07413)" accepted by **Findings of EMNLP 2026**. [Project site](https://ai4manufacturing.github.io/forge-web/).
 * **[Sept 6, 2026]** I gave a talk at **Peking University (PKU)** on "**Answering Complex Analytical Questions over Heterogeneous Federated Systems**".
 * **[Aug 2026]** Completed my research internship at **Salesforce AI Research** in Singapore, working on computer-use agents and MCP tool-use agents with [Junnan Li](https://scholar.google.com/citations?user=MuUhwi0AAAAJ&hl=en).
