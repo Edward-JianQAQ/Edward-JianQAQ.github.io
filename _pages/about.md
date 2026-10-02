@@ -28,11 +28,9 @@ Education
 
 News
 ======
-* **[2026]** Our paper "RA-SQL: Relational Algebra as Deterministic Chain-of-Thought for Natural Language to SQL" accepted by **SIGMOD 2027**. Thank all the co-authors for the nice work!
+* **[Sept 2026]** Our paper "RA-SQL: Relational Algebra as Deterministic Chain-of-Thought for Natural Language to SQL" accepted by **SIGMOD 2027**. Thank all the co-authors for the nice work!
 * **[2026]** Our paper "[TRL-Bench: Standardizing Cross-Paradigm Representation-Level Evaluation of Tabular Encoders](https://arxiv.org/abs/2606.09323)" accepted by **NeurIPS 2026 Datasets and Benchmarks Track**. [Project site](https://logo-cuhksz.github.io/trl-bench.github.io/).
-* **[2026]** Our paper "[FORGE: Fine-grained Multimodal Evaluation for Manufacturing Scenarios](https://arxiv.org/abs/2604.07413)" accepted by **Findings of EMNLP 2026**. [Project site](https://ai4manufacturing.github.io/forge-web/).
-* **[2026]** Our survey "[When Vision Meets Graphs: A Survey on Graph Reasoning and Learning](https://www.techrxiv.org/doi/full/10.36227/techrxiv.177004261.15861585/v1)" accepted by **IJCAI 2026 Survey Track**.
-* **[Sept 2026]** Our preprint "[X-Tree: Tokenizing Reusable Experience for Efficient Agent Generalization](https://arxiv.org/abs/2609.32993)" is released.
+* **[Sept 2026]** Our paper "[FORGE: Fine-grained Multimodal Evaluation for Manufacturing Scenarios](https://arxiv.org/abs/2604.07413)" accepted by **Findings of EMNLP 2026**. [Project site](https://ai4manufacturing.github.io/forge-web/).
 * **[Sept 6, 2026]** I gave a talk at **Peking University (PKU)** on "**Answering Complex Analytical Questions over Heterogeneous Federated Systems**".
 * **[Aug 2026]** Completed my research internship at **Salesforce AI Research** in Singapore, working on computer-use agents and MCP tool-use agents with [Junnan Li](https://scholar.google.com/citations?user=MuUhwi0AAAAJ&hl=en).
 * **[Aug 2026]** Our preprints "[MCP-Universe RL: A Framework for Training MCP Tool-Use Agents via Reinforcement Learning](https://arxiv.org/abs/2608.22167)" ([Project site](https://mcp-universe.github.io/mcpu-rl)) and "[TEXAS: Task-Expert-Aware Supervision for Downstream Mixture-of-Experts LLM Adaptation](https://arxiv.org/abs/2608.06396)" are released.
