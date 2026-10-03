@@ -3,7 +3,7 @@
 #   date:  shown in the left column (keep the "Mon YYYY" style)
 #   text:  HTML allowed (links, <b>)
 #   tag:   optional short label: paper | talk | career | release
-#   pin:   true -> always visible even when the list is collapsed (the first `news_visible` items are visible anyway)
+#   pin:   true -> stays visible when the list is collapsed (the first 7 items are always visible)
 
 - date: "Sep 2026"
   tag: paper
@@ -76,7 +76,7 @@
 - date: "Mar 2026"
   tag: talk
   text: >-
-    Invited talk at <b>Tencent Hunyuan</b>: <i>Recent efforts on CUAs' data, training, evaluation, and (potentially) beyond</i>.
+    Invited talk at <b>Tencent Hunyuan</b>: <i>Recent Efforts on CUAs' Data, Training, Evaluation, and (Potentially) Beyond</i>.
 
 - date: "Feb 2026"
   tag: paper
@@ -88,7 +88,7 @@
   tag: paper
   text: >-
     Two papers accepted by <b>ICLR 2026</b>: <a href="https://gai-community.github.io/Graph-Omni/">GraphOmni</a> and
-    <a href="https://groundcua.github.io/">GroundCUA</a> (Grounding Computer-Use Agents on Human Demonstrations).
+    <a href="https://groundcua.github.io/">GroundCUA</a> (Grounding Computer Use Agents on Human Demonstrations).
 
 - date: "Jan 2026"
   tag: talk
@@ -127,7 +127,7 @@
 - date: "Apr 2024"
   tag: career
   text: >-
-    Joined <b>ServiceNow Research</b> (Montreal) as a visiting researcher, working on multimodal learning and GUI understanding (through May 2025).
+    Started a visiting researcher internship at <b>ServiceNow Research</b> (Montreal), working on multimodal learning and GUI understanding (through May 2025).
 
 - date: "Oct 2023"
   tag: paper

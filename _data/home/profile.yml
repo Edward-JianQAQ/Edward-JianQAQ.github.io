@@ -4,7 +4,6 @@
 name: "Xiangru (Edward) Jian"
 name_html: 'Xiangru <span class="name__nick">(Edward)</span> Jian'
 name_native: ""            # e.g. Chinese name; leave empty to hide
-pronunciation: ""          # e.g. "shee-ahng-roo jee-en"; leave empty to hide
 role: "Ph.D. student in Computer Science"
 affiliation: "Data Systems Group · University of Waterloo"
 affiliation_url: "https://uwaterloo.ca/data-systems-group/"
@@ -12,6 +11,7 @@ location: "Waterloo, Canada"
 email: "xiangru.jian@uwaterloo.ca"
 photo: "/images/xiangru_portrait.jpg"
 cv: "/files/CV_Xiangru_Jian_latest.pdf"
+cv_note: "Email me for the most recent version of my CV."   # shown in the job-market card; set to "" once the PDF is current
 last_updated: "October 2026"
 
 links:
@@ -51,8 +51,8 @@ themes:
       over federated data lakes, and the interplay between LLMs and data management systems.
     works:
       - { name: "RA-SQL",        venue: "SIGMOD '27" }
-      - { name: "InteracSPARQL", venue: "ACL '26 F",  url: "https://arxiv.org/abs/2511.02002" }
-      - { name: "LazyVLM",       venue: "ICDE '26",   url: "https://arxiv.org/abs/2505.21459" }
+      - { name: "InteracSPARQL", venue: "ACL Findings '26",  url: "https://arxiv.org/abs/2511.02002" }
+      - { name: "LazyVLM",       venue: "ICDE '26 Demo",   url: "https://arxiv.org/abs/2505.21459" }
       - { name: "LLM ⇄ DBMS duality", venue: "IEEE DEB", url: "http://sites.computer.org/debull/A26mar/p40.pdf" }
   - key: agents
     title: "Computer-use & tool-use agents"
@@ -81,8 +81,8 @@ themes:
 
 # Short impact facts shown as chips under the research themes
 highlights:
-  - { value: "500K+",  label: "Hugging Face downloads of the UI-Vision / GroundCUA / CUA-Suite series", url: "https://huggingface.co/datasets/ServiceNow/VideoCUA" }
-  - { value: "3.9k ★", label: "GitHub stars for Paper2Poster", url: "https://paper2poster.github.io/" }
+  - { value: "500K+",  label: "Hugging Face downloads of the UI-Vision / GroundCUA / CUA-Suite series", url: "https://cua-suite.github.io/" }
+  - { value: "3.9k ★", label: "GitHub stars for Paper2Poster", url: "https://github.com/Paper2Poster/Paper2Poster" }
   - { value: "7.5M",   label: "Samples in BigDocs, the open multimodal document dataset I co-led (ICLR 2025)", url: "https://bigdocs.github.io/" }
   - { value: "3 Orals", label: "EMNLP 2023 · IEEE BigData 2023 · ICML 2025 MAS Workshop" }
 
@@ -98,7 +98,7 @@ experience:
     mentor: { name: "Junnan Li", url: "https://scholar.google.com/citations?user=MuUhwi0AAAAJ&hl=en" }
   - org: "ServiceNow Research"
     url: "https://www.servicenow.com/research/author/xiangru-jian.html"
-    role: "Visiting Researcher"
+    role: "Visiting Researcher (Internship)"
     place: "Montreal, Canada"
     dates: "Apr 2024 – May 2025"
     detail: >-

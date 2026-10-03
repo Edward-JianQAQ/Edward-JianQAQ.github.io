@@ -18,10 +18,16 @@
     if (t) return t;
     return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
   }
+  function syncThemeColor(t) {
+    document.querySelectorAll('meta[name="theme-color"]').forEach(function (m) {
+      m.setAttribute('content', t === 'dark' ? '#0d1218' : '#fbfcfe');
+    });
+  }
   if (toggle) {
     toggle.addEventListener('click', function () {
       var next = currentTheme() === 'dark' ? 'light' : 'dark';
       root.setAttribute('data-theme', next);
+      syncThemeColor(next);
       store('xj-theme', next);
     });
   }
@@ -46,12 +52,21 @@
     var id = a.getAttribute('href').slice(1);
     return { link: a, el: document.getElementById(id) };
   }).filter(function (t) { return t.el; });
+  var lastActive = null;
   function setActive() {
     var y = window.scrollY + window.innerHeight * 0.3;
     var active = targets[0];
     targets.forEach(function (t) { if (t.el.offsetTop <= y) active = t; });
+    if (!active || active.link === lastActive) return;
+    lastActive = active.link;
     navLinks.forEach(function (a) { a.removeAttribute('aria-current'); });
-    if (active) active.link.setAttribute('aria-current', 'true');
+    active.link.setAttribute('aria-current', 'true');
+    // On phones the nav is a horizontal scroller: keep the active link in view.
+    var nav = active.link.closest('.navlinks');
+    if (nav && nav.scrollWidth > nav.clientWidth) {
+      var lr = active.link.getBoundingClientRect(), nr = nav.getBoundingClientRect();
+      nav.scrollLeft += lr.left - nr.left - (nr.width - lr.width) / 2;
+    }
   }
   window.addEventListener('scroll', setActive, { passive: true });
   setActive();
@@ -77,15 +92,19 @@
   var emptyEl = document.getElementById('pub-empty');
   var state = { mode: store('xj-pub-mode') === 'all' ? 'all' : 'selected', topic: 'all' };
 
+  function hasTopic(li, topic) {
+    return topic === 'all' || (' ' + li.dataset.topics + ' ').indexOf(' ' + topic + ' ') !== -1;
+  }
   function applyFilters() {
-    var shown = 0;
+    var shown = 0, last = null;
     pubs.forEach(function (li) {
       var okMode = state.mode === 'all' || li.dataset.selected === '1';
-      var okTopic = state.topic === 'all' || (' ' + li.dataset.topics + ' ').indexOf(' ' + state.topic + ' ') !== -1;
-      var visible = okMode && okTopic;
+      var visible = okMode && hasTopic(li, state.topic);
       li.classList.toggle('is-hidden', !visible);
-      if (visible) shown++;
+      li.classList.remove('is-last');
+      if (visible) { shown++; last = li; }
     });
+    if (last) last.classList.add('is-last');
     modeBtns.forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.mode === state.mode)); });
     topicBtns.forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.topic === state.topic)); });
     if (countEl) countEl.textContent = shown + ' of ' + pubs.length + ' papers';
@@ -95,7 +114,13 @@
     b.addEventListener('click', function () { state.mode = b.dataset.mode; store('xj-pub-mode', state.mode); applyFilters(); });
   });
   topicBtns.forEach(function (b) {
-    b.addEventListener('click', function () { state.topic = b.dataset.topic; applyFilters(); });
+    b.addEventListener('click', function () {
+      state.topic = b.dataset.topic;
+      // A topic with no selected papers would show an empty list; switch to "All" instead.
+      var anySelected = pubs.some(function (li) { return li.dataset.selected === '1' && hasTopic(li, state.topic); });
+      if (state.mode === 'selected' && !anySelected) state.mode = 'all';
+      applyFilters();
+    });
   });
   if (pubs.length) applyFilters();
 
@@ -106,7 +131,9 @@
     var more = btn.previousElementSibling;
     if (!more) return;
     more.hidden = false;
+    more.setAttribute('tabindex', '-1');
     btn.remove();
+    more.focus({ preventScroll: true });
   });
 
   /* ---- copy email ---- */

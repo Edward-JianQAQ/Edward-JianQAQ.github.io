@@ -25,6 +25,7 @@
   authors: ["Wei Pang*", "Xiangru Jian*", "Hehan Li*", "Zhixuan Yu*", "Alex Xue*", "Jinyang Li", "Zhengyuan Dong", "Xinjian Zhao", "Hao Xu", "Chao Zhang", "Reynold Cheng", "M. Tamer Özsu", "Tianshu Yu✉"]
   show: 5
   venue: "NeurIPS 2026 Datasets and Benchmarks Track"
+  note: "* core contributors"
   venue_short: "NeurIPS"
   year: 2026
   kind: conf
@@ -66,7 +67,7 @@
   links:
     paper: "https://arxiv.org/abs/2608.22167"
     project: "https://mcp-universe.github.io/mcpu-rl"
-    code: "https://github.com/SalesforceAIResearch/MCP-Universe"
+    code: "https://github.com/SalesforceAIResearch/MCP-Universe/tree/main/mcpuniverse/rl"
 
 - title: "StateAct: Program State, before Pixels, for Long-Horizon Computer-Use Agents"
   authors: ["Yan Yang", "Xiangru Jian", "Ziyang Luo", "Zirui Zhao", "Yutong Dai", "Ziji Shi", "Hanshu Yan", "Jun Hao Liew", "Silvio Savarese", "Junnan Li"]
@@ -79,7 +80,7 @@
   selected: true
   tldr: >-
     A code-first multi-agent harness that grounds computer-use agents in program state and calls a GUI agent only
-    when needed, improving OSWorld success at about 9× lower cost per task.
+    when needed, raising OSWorld 2.0 binary success from 20.6% to 26.9% (Claude Opus 4.8) at about 9× lower cost per task.
   links:
     paper: "https://arxiv.org/abs/2607.22798"
 
@@ -109,6 +110,7 @@
   links:
     paper: "https://arxiv.org/abs/2603.24440"
     project: "https://cua-suite.github.io/"
+    code: "https://github.com/ServiceNow/GroundCUA/tree/main/VideoCUA"
     data: "https://huggingface.co/datasets/ServiceNow/VideoCUA"
 
 - title: "MolEmb: Multimodal Large Language Models Can Be Strong Molecular Embedding Models"
@@ -237,7 +239,7 @@
     code: "https://github.com/Paper2Poster/Paper2Poster"
 
 - title: "The Underappreciated Power of Vision Models for Graph Structural Understanding"
-  authors: ["Xinjian Zhao", "Wei Pang", "Zhongkai Xue", "Xiangru Jian", "Lei Zhang", "Yaoyao Xu", "Xiaozhuang Song", "Shu Wu", "Tianshu Yu"]
+  authors: ["Xinjian Zhao*", "Wei Pang*", "Zhongkai Xue*", "Xiangru Jian*", "Lei Zhang", "Yaoyao Xu", "Xiaozhuang Song", "Shu Wu", "Tianshu Yu"]
   show: 4
   venue: "Advances in Neural Information Processing Systems (NeurIPS)"
   venue_short: "NeurIPS"

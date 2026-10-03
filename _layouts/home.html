@@ -13,28 +13,30 @@
   <title>{{ p.name }} · University of Waterloo</title>
   <meta name="description" content="{{ p.name }} is a Ph.D. student at the University of Waterloo working on multimodal and agentic data management. On the job market for faculty, postdoc, and industry research positions.">
   <meta name="author" content="{{ p.name }}">
-  <link rel="canonical" href="{{ site.url }}">
+  <link rel="canonical" href="{{ '/' | absolute_url }}">
   <meta property="og:type" content="profile">
   <meta property="og:title" content="{{ p.name }}">
   <meta property="og:description" content="Ph.D. student at the University of Waterloo · Multimodal and agentic data management · On the job market">
-  <meta property="og:url" content="{{ site.url }}">
-  <meta property="og:image" content="{{ site.url | remove_last: '/' }}{{ base }}{{ p.photo }}">
+  <meta property="og:url" content="{{ '/' | absolute_url }}">
+  <meta property="og:image" content="{{ p.photo | absolute_url }}">
   <meta name="twitter:card" content="summary">
   <meta name="theme-color" content="#fbfcfe" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#0e131a" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#0d1218" media="(prefers-color-scheme: dark)">
   <link rel="icon" href="{{ base }}/images/favicon.ico">
   <script>
     (function () {
       try {
         var t = localStorage.getItem('xj-theme');
-        if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+        if (t === 'light' || t === 'dark') {
+          document.documentElement.setAttribute('data-theme', t);
+          document.querySelectorAll('meta[name="theme-color"]').forEach(function (m) { m.setAttribute('content', t === 'dark' ? '#0d1218' : '#fbfcfe'); });
+        }
       } catch (e) {}
       document.documentElement.classList.add('js');
     })();
   </script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&display=swap">
+  <link rel="preload" href="{{ base }}/assets/fonts/newsreader-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="{{ base }}/assets/fonts/ibm-plex-sans-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="{{ base }}/assets/css/home.css?v={{ site.time | date: '%Y%m%d%H%M' }}">
   <script type="application/ld+json">
   {
@@ -45,9 +47,10 @@
     "jobTitle": "Ph.D. Student",
     "affiliation": { "@type": "CollegeOrUniversity", "name": "University of Waterloo" },
     "email": "mailto:{{ p.email }}",
-    "url": "{{ site.url }}",
-    "image": "{{ site.url | remove_last: '/' }}{{ base }}{{ p.photo }}",
-    "sameAs": [{% for l in p.links %}{% unless l.icon == 'mail' %}"{{ l.url }}"{% unless forloop.last %},{% endunless %}{% endunless %}{% endfor %}]
+    "url": "{{ '/' | absolute_url }}",
+    "image": "{{ p.photo | absolute_url }}",
+    {%- assign same_as = p.links | where_exp: "l", "l.icon != 'mail'" | map: "url" %}
+    "sameAs": {{ same_as | jsonify }}
   }
   </script>
 </head>
@@ -81,7 +84,10 @@
   <!-- ============ Hero ============ -->
   <section class="hero" aria-label="About">
     <div class="hero__text">
-      <h1 class="name">{{ p.name_html | default: p.name }}{% if p.name_native != "" %} <span class="name__native" lang="zh">{{ p.name_native }}</span>{% endif %}</h1>
+      {%- if p.job_market.enabled %}
+      <a class="status-pill" href="#market"><span class="status-pill__dot" aria-hidden="true"></span>On the job market<span class="status-pill__more"> · Ph.D. expected {{ p.job_market.graduation }}</span></a>
+      {%- endif %}
+      <h1 class="name">{{ p.name_html | default: p.name }}{% if p.name_native and p.name_native != "" %} <span class="name__native" lang="zh">{{ p.name_native }}</span>{% endif %}</h1>
       <p class="hero__role">{{ p.role }} · <a href="{{ p.affiliation_url }}">{{ p.affiliation }}</a></p>
       <div class="bio">
         {{ content }}
@@ -100,14 +106,14 @@
 
   <!-- ============ Job market console ============ -->
   {%- if p.job_market.enabled %}
-  <section class="market" aria-labelledby="market-title">
+  <section class="market" id="market" aria-labelledby="market-title">
     <div class="market__bar">
       <span class="dots" aria-hidden="true"><span></span><span></span><span></span></span>
       <span class="market__path">psql · xiangru@uwaterloo</span>
       <span class="market__status" id="market-title"><span class="pulse" aria-hidden="true"></span>On the job market, 2026–27</span>
     </div>
     <div class="market__body">
-      <pre class="sql" aria-label="SQL query: select open positions"><span class="pr">xiangru=#</span> <span class="kw">SELECT</span> position, status
+      <pre class="sql"><span class="pr">xiangru=#</span> <span class="kw">SELECT</span> position, status
 <span class="pr">xiangru-#</span>   <span class="kw">FROM</span> job_market
 <span class="pr">xiangru-#</span>  <span class="kw">WHERE</span> available_from = <span class="str">'{{ p.job_market.graduation }}'</span>;</pre>
       <div class="psql-wrap">
@@ -124,10 +130,10 @@
       <p class="sql sql--last" aria-hidden="true"><span class="pr">xiangru=#</span> <span class="caret"></span></p>
     </div>
     <div class="market__foot">
-      <p class="market__note">I expect to complete my Ph.D. in <b>{{ p.job_market.graduation }}</b> and would be glad to talk about faculty, postdoc, and research scientist roles.</p>
+      <p class="market__note">I expect to complete my Ph.D. in <b>{{ p.job_market.graduation }}</b> and would be glad to talk about faculty, postdoc, and research scientist roles.{% if p.cv_note and p.cv_note != "" %} <span class="market__cvnote">{{ p.cv_note }}</span>{% endif %}</p>
       <div class="market__actions">
         <a class="btn btn--light" href="{{ base }}{{ p.cv }}"><svg class="i"><use href="#i-download"/></svg>Download CV</a>
-        {%- for d in p.job_market.documents %}{% if d.url != "" %}
+        {%- for d in p.job_market.documents %}{% if d.url and d.url != "" %}
         <a class="btn btn--ghost" href="{{ d.url }}"><svg class="i"><use href="#i-file"/></svg>{{ d.label }}</a>
         {%- endif %}{% endfor %}
         <span class="email-copy">
@@ -155,7 +161,8 @@
         <p class="theme__text">{{ t.text }}</p>
         <ul class="works">
           {%- for w in t.works %}
-          <li>{% if w.url %}<a class="work" href="{{ w.url }}">{% else %}<span class="work">{% endif %}<span class="work__name">{{ w.name }}</span><span class="work__venue">{{ w.venue }}</span>{% if w.url %}</a>{% else %}</span>{% endif %}</li>
+          {%- assign has_url = false %}{% if w.url and w.url != "" %}{% assign has_url = true %}{% endif %}
+          <li>{% if has_url %}<a class="work" href="{{ w.url }}">{% else %}<span class="work">{% endif %}<span class="work__name">{{ w.name }}</span><span class="work__venue">{{ w.venue }}</span>{% if has_url %}</a>{% else %}</span>{% endif %}</li>
           {%- endfor %}
         </ul>
       </article>
@@ -165,7 +172,7 @@
     <dl class="highlights">
       {%- for h in p.highlights %}
       <div class="highlight">
-        <dt>{% if h.url %}<a href="{{ h.url }}">{{ h.value }}</a>{% else %}{{ h.value }}{% endif %}</dt>
+        <dt>{% if h.url and h.url != "" %}<a href="{{ h.url }}">{{ h.value }}</a>{% else %}{{ h.value }}{% endif %}</dt>
         <dd>{{ h.label }}</dd>
       </div>
       {%- endfor %}
@@ -179,8 +186,8 @@
     </div>
     <ol class="news" id="news-list">
       {%- for n in news %}
-      <li class="news__item{% if forloop.index > news_visible %} is-extra{% endif %}">
-        <time class="news__date">{{ n.date }}</time>
+      <li class="news__item{% if forloop.index > news_visible and n.pin != true %} is-extra{% endif %}">
+        <span class="news__date">{{ n.date }}</span>
         <span class="news__tag news__tag--{{ n.tag }}">{{ n.tag }}</span>
         <p class="news__text">{{ n.text }}</p>
       </li>
@@ -196,15 +203,18 @@
   <section id="publications" class="section">
     <div class="section__head">
       <h2>Publications</h2>
-      <a class="section__aside" href="{{ p.links[1].url }}">Google Scholar <svg class="i"><use href="#i-arrow"/></svg></a>
+      {%- assign scholar = p.links | where: "icon", "scholar" | first %}
+      {%- if scholar %}
+      <a class="section__aside" href="{{ scholar.url }}">Google Scholar <svg class="i"><use href="#i-arrow"/></svg></a>
+      {%- endif %}
     </div>
 
-    <div class="pubbar" role="group" aria-label="Filter publications">
-      <div class="seg" role="radiogroup" aria-label="Which publications">
+    <div class="pubbar">
+      <div class="seg" role="group" aria-label="Which publications">
         <button type="button" class="seg__btn" data-mode="selected" aria-pressed="true">Selected</button>
         <button type="button" class="seg__btn" data-mode="all" aria-pressed="false">All <span class="seg__count">{{ pubs.size }}</span></button>
       </div>
-      <div class="topics" aria-label="Topic">
+      <div class="topics" role="group" aria-label="Filter by topic">
         <button type="button" class="topic" data-topic="all" aria-pressed="true">All topics</button>
         <button type="button" class="topic" data-topic="agents" aria-pressed="false">Agents</button>
         <button type="button" class="topic" data-topic="data" aria-pressed="false">Data management</button>
@@ -235,11 +245,11 @@
           {%- for e in p.experience %}
           <li class="tl">
             <div class="tl__head">
-              <span class="tl__org">{% if e.url %}<a href="{{ e.url }}">{{ e.org }}</a>{% else %}{{ e.org }}{% endif %}</span>
+              <span class="tl__org">{% if e.url and e.url != "" %}<a href="{{ e.url }}">{{ e.org }}</a>{% else %}{{ e.org }}{% endif %}</span>
               <span class="tl__dates">{{ e.dates }}</span>
             </div>
             <p class="tl__role">{{ e.role }} · {{ e.place }}</p>
-            <p class="tl__detail">{{ e.detail }}{% if e.mentor %} <span class="tl__mentor">Mentor: <a href="{{ e.mentor.url }}">{{ e.mentor.name }}</a></span>{% endif %}</p>
+            <p class="tl__detail">{{ e.detail }}{% if e.mentor and e.mentor.name %} <span class="tl__mentor">Mentor: <a href="{{ e.mentor.url }}">{{ e.mentor.name }}</a></span>{% endif %}</p>
           </li>
           {%- endfor %}
         </ol>
@@ -250,7 +260,7 @@
           {%- for e in p.education %}
           <li class="tl">
             <div class="tl__head">
-              <span class="tl__org"><a href="{{ e.url }}">{{ e.school }}</a></span>
+              <span class="tl__org">{% if e.url and e.url != "" %}<a href="{{ e.url }}">{{ e.school }}</a>{% else %}{{ e.school }}{% endif %}</span>
             </div>
             <p class="tl__role">{{ e.degree }}</p>
             <p class="tl__dates tl__dates--block">{{ e.dates }}</p>
@@ -265,15 +275,15 @@
   <!-- ============ Talks ============ -->
   <section id="talks" class="section">
     <div class="section__head">
-      <h2>Invited talks</h2>
+      <h2>Talks</h2>
     </div>
     <ol class="talks">
       {%- for t in p.talks %}
       <li class="talk">
-        <time class="talk__date">{{ t.date }}</time>
+        <span class="talk__date">{{ t.date }}</span>
         <div class="talk__body">
-          <span class="talk__venue">{% if t.url %}<a href="{{ t.url }}">{{ t.venue }}</a>{% else %}{{ t.venue }}{% endif %}</span>
-          <span class="talk__title">{{ t.title }}{% if t.slides %} <a class="talk__slides" href="{{ t.slides }}"><svg class="i"><use href="#i-slides"/></svg>slides</a>{% endif %}</span>
+          <span class="talk__venue">{% if t.url and t.url != "" %}<a href="{{ t.url }}">{{ t.venue }}</a>{% else %}{{ t.venue }}{% endif %}</span>
+          <span class="talk__title">{{ t.title }}{% if t.slides and t.slides != "" %} <a class="talk__slides" href="{{ t.slides }}"><svg class="i"><use href="#i-slides"/></svg>slides</a>{% endif %}</span>
         </div>
       </li>
       {%- endfor %}
@@ -303,7 +313,7 @@
         <h2 class="h2--small">Honors</h2>
         <ul class="plain">
           {%- for h in p.honors %}
-          <li>{{ h.name }}<span class="sub">{% if h.org != "" %}{{ h.org }} · {% endif %}{{ h.year }}</span></li>
+          <li>{{ h.name }}<span class="sub">{% if h.org and h.org != "" %}{{ h.org }} · {% endif %}{{ h.year }}</span></li>
           {%- endfor %}
         </ul>
       </div>

@@ -10,7 +10,7 @@
   <div class="pub__body">
     <h3 class="pub__title">
       {%- assign main = pub.links.paper | default: pub.links.project -%}
-      {%- if main %}<a href="{{ main }}">{{ pub.title }}</a>{% else %}{{ pub.title }}{% endif -%}
+      {%- if main and main != "" %}<a href="{{ main }}">{{ pub.title }}</a>{% else %}{{ pub.title }}{% endif -%}
     </h3>
     <p class="pub__authors">
       {%- for a in pub.authors limit: shown -%}
@@ -25,12 +25,21 @@
     {%- if pub.tldr %}
     <p class="pub__tldr">{{ pub.tldr }}</p>
     {%- endif %}
+    {%- assign plinks = pub.links -%}
+    {%- assign has_links = false -%}
+    {%- if pub.awards and pub.awards.size > 0 %}{% assign has_links = true %}{% endif -%}
+    {%- if plinks.paper and plinks.paper != "" %}{% assign has_links = true %}{% endif -%}
+    {%- if plinks.project and plinks.project != "" %}{% assign has_links = true %}{% endif -%}
+    {%- if plinks.code and plinks.code != "" %}{% assign has_links = true %}{% endif -%}
+    {%- if plinks.data and plinks.data != "" %}{% assign has_links = true %}{% endif -%}
+    {%- if has_links %}
     <div class="pub__links">
       {%- for award in pub.awards %}<span class="award">{{ award }}</span>{% endfor -%}
-      {%- if pub.links.paper %}<a class="lbtn" href="{{ pub.links.paper }}"><svg class="i"><use href="#i-file"/></svg>Paper</a>{% endif -%}
-      {%- if pub.links.project %}<a class="lbtn" href="{{ pub.links.project }}"><svg class="i"><use href="#i-globe"/></svg>Project</a>{% endif -%}
-      {%- if pub.links.code %}<a class="lbtn" href="{{ pub.links.code }}"><svg class="i"><use href="#i-code"/></svg>Code</a>{% endif -%}
-      {%- if pub.links.data %}<a class="lbtn" href="{{ pub.links.data }}"><svg class="i"><use href="#i-data"/></svg>Data</a>{% endif -%}
+      {%- if plinks.paper and plinks.paper != "" %}<a class="lbtn" href="{{ plinks.paper }}"><svg class="i"><use href="#i-file"/></svg>Paper</a>{% endif -%}
+      {%- if plinks.project and plinks.project != "" %}<a class="lbtn" href="{{ plinks.project }}"><svg class="i"><use href="#i-globe"/></svg>Project</a>{% endif -%}
+      {%- if plinks.code and plinks.code != "" %}<a class="lbtn" href="{{ plinks.code }}"><svg class="i"><use href="#i-code"/></svg>Code</a>{% endif -%}
+      {%- if plinks.data and plinks.data != "" %}<a class="lbtn" href="{{ plinks.data }}"><svg class="i"><use href="#i-data"/></svg>Data</a>{% endif -%}
     </div>
+    {%- endif %}
   </div>
 </li>
