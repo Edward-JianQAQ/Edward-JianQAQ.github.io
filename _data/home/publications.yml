@@ -182,7 +182,7 @@
   selected: true
   tldr: >-
     GroundCUA: 3.56M human-verified UI element annotations across 87 desktop apps. GroundNext models trained on it
-    reach state of the art on five grounding benchmarks with a tenth of the usual data.
+    reach state of the art at the 3B and 7B scales on five grounding benchmarks with a tenth of the usual data.
   links:
     paper: "https://openreview.net/forum?id=9WiPZy3Kro"
     project: "https://groundcua.github.io/"

@@ -57,6 +57,8 @@
     var y = window.scrollY + window.innerHeight * 0.3;
     var active = targets[0];
     targets.forEach(function (t) { if (t.el.offsetTop <= y) active = t; });
+    // At the very bottom the last sections can never reach the 30% line; highlight the last one.
+    if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2) active = targets[targets.length - 1];
     if (!active || active.link === lastActive) return;
     lastActive = active.link;
     navLinks.forEach(function (a) { a.removeAttribute('aria-current'); });

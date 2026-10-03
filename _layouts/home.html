@@ -90,9 +90,9 @@
       <li><a href="#talks">Talks</a></li>
     </ul>
     <div class="topbar__actions">
-      <a class="btn btn--small btn--solid" href="{{ base }}{{ p.cv }}"><svg class="i"><use href="#i-file"/></svg>CV</a>
+      <a class="btn btn--small btn--solid" href="{{ base }}{{ p.cv }}"><svg aria-hidden="true" focusable="false" class="i"><use href="#i-file"/></svg>CV</a>
       <button class="theme-toggle" type="button" id="theme-toggle" aria-label="Switch color theme" title="Switch color theme">
-        <svg class="i i--sun"><use href="#i-sun"/></svg><svg class="i i--moon"><use href="#i-moon"/></svg>
+        <svg aria-hidden="true" focusable="false" class="i i--sun"><use href="#i-sun"/></svg><svg aria-hidden="true" focusable="false" class="i i--moon"><use href="#i-moon"/></svg>
       </button>
     </div>
   </nav>
@@ -113,13 +113,13 @@
       </div>
       <ul class="links" aria-label="Profiles">
         {%- for l in p.links %}
-        <li><a class="link-chip" href="{{ l.url }}"><svg class="i"><use href="#i-{{ l.icon }}"/></svg>{{ l.label }}</a></li>
+        <li><a class="link-chip" href="{{ l.url }}"><svg aria-hidden="true" focusable="false" class="i"><use href="#i-{{ l.icon }}"/></svg>{{ l.label }}</a></li>
         {%- endfor %}
       </ul>
     </div>
     <figure class="hero__photo">
       <img src="{{ base }}{{ p.photo }}" alt="Portrait of Xiangru Jian" width="560" height="700">
-      <figcaption><svg class="i"><use href="#i-pin"/></svg>{{ p.location }}</figcaption>
+      <figcaption><svg aria-hidden="true" focusable="false" class="i"><use href="#i-pin"/></svg>{{ p.location }}</figcaption>
     </figure>
   </section>
 
@@ -129,7 +129,7 @@
     <div class="market__bar">
       <span class="dots" aria-hidden="true"><span></span><span></span><span></span></span>
       <span class="market__path">psql · xiangru@uwaterloo</span>
-      <span class="market__status" id="market-title"><span class="pulse" aria-hidden="true"></span>On the job market, 2026–27</span>
+      <h2 class="market__status" id="market-title"><span class="pulse" aria-hidden="true"></span>On the job market, 2026–27</h2>
     </div>
     <div class="market__body">
       <pre class="sql"><span class="pr">xiangru=#</span> <span class="kw">SELECT</span> position, status
@@ -151,13 +151,13 @@
     <div class="market__foot">
       <p class="market__note">I expect to complete my Ph.D. in <b>{{ p.job_market.graduation }}</b> and would be glad to talk about faculty, postdoc, and research scientist roles.{% if p.cv_note and p.cv_note != "" %} <span class="market__cvnote">{{ p.cv_note }}</span>{% endif %}</p>
       <div class="market__actions">
-        <a class="btn btn--light" href="{{ base }}{{ p.cv }}"><svg class="i"><use href="#i-download"/></svg>Download CV</a>
+        <a class="btn btn--light" href="{{ base }}{{ p.cv }}"><svg aria-hidden="true" focusable="false" class="i"><use href="#i-download"/></svg>Download CV</a>
         {%- for d in p.job_market.documents %}{% if d.url and d.url != "" %}
-        <a class="btn btn--ghost" href="{{ d.url }}"><svg class="i"><use href="#i-file"/></svg>{{ d.label }}</a>
+        <a class="btn btn--ghost" href="{{ d.url }}"><svg aria-hidden="true" focusable="false" class="i"><use href="#i-file"/></svg>{{ d.label }}</a>
         {%- endif %}{% endfor %}
         <span class="email-copy">
-          <a class="btn btn--ghost" href="mailto:{{ p.email }}"><svg class="i"><use href="#i-mail"/></svg><span class="email-text">{{ p.email }}</span></a>
-          <button class="copy" type="button" data-copy="{{ p.email }}" aria-label="Copy email address" title="Copy email address"><svg class="i"><use href="#i-copy"/></svg><span class="copy__done" aria-live="polite"></span></button>
+          <a class="btn btn--ghost" href="mailto:{{ p.email }}"><svg aria-hidden="true" focusable="false" class="i"><use href="#i-mail"/></svg><span class="email-text">{{ p.email }}</span></a>
+          <button class="copy" type="button" data-copy="{{ p.email }}" aria-label="Copy email address" title="Copy email address"><svg aria-hidden="true" focusable="false" class="i"><use href="#i-copy"/></svg><span class="copy__done" aria-live="polite"></span></button>
         </span>
       </div>
     </div>
@@ -175,7 +175,7 @@
     <div class="themes">
       {%- for t in p.themes %}
       <article class="theme">
-        <div class="theme__icon"><svg class="i"><use href="#i-{{ t.icon }}"/></svg></div>
+        <div class="theme__icon"><svg aria-hidden="true" focusable="false" class="i"><use href="#i-{{ t.icon }}"/></svg></div>
         <h3 class="theme__title">{{ t.title }}</h3>
         <p class="theme__text">{{ t.text }}</p>
         <ul class="works">
@@ -227,7 +227,7 @@
       <h2>Publications</h2>
       {%- assign scholar = p.links | where: "icon", "scholar" | first %}
       {%- if scholar %}
-      <a class="section__aside" href="{{ scholar.url }}">Google Scholar <svg class="i"><use href="#i-arrow"/></svg></a>
+      <a class="section__aside" href="{{ scholar.url }}">Google Scholar <svg aria-hidden="true" focusable="false" class="i"><use href="#i-arrow"/></svg></a>
       {%- endif %}
     </div>
 
@@ -295,19 +295,19 @@
               {%- endfor %}
             </dl>
             <div class="dataset__links">
-              {%- if c.links.data and c.links.data != "" %}<a class="lbtn" href="{{ c.links.data }}"><svg class="i"><use href="#i-data"/></svg>Data</a>{% endif -%}
-              {%- if c.links.paper and c.links.paper != "" %}<a class="lbtn" href="{{ c.links.paper }}"><svg class="i"><use href="#i-file"/></svg>Paper</a>{% endif -%}
-              {%- if c.links.code and c.links.code != "" %}<a class="lbtn" href="{{ c.links.code }}"><svg class="i"><use href="#i-code"/></svg>Code</a>{% endif -%}
+              {%- if c.links.data and c.links.data != "" %}<a class="lbtn" href="{{ c.links.data }}"><svg aria-hidden="true" focusable="false" class="i"><use href="#i-data"/></svg>Data</a>{% endif -%}
+              {%- if c.links.paper and c.links.paper != "" %}<a class="lbtn" href="{{ c.links.paper }}"><svg aria-hidden="true" focusable="false" class="i"><use href="#i-file"/></svg>Paper</a>{% endif -%}
+              {%- if c.links.code and c.links.code != "" %}<a class="lbtn" href="{{ c.links.code }}"><svg aria-hidden="true" focusable="false" class="i"><use href="#i-code"/></svg>Code</a>{% endif -%}
             </div>
           </section>
           {%- endfor %}
         </div>
         {%- endif %}
         <div class="dataset__links">
-          {%- if d.links.project and d.links.project != "" %}<a class="lbtn" href="{{ d.links.project }}"><svg class="i"><use href="#i-globe"/></svg>Project</a>{% endif -%}
-          {%- if d.links.data and d.links.data != "" %}<a class="lbtn" href="{{ d.links.data }}"><svg class="i"><use href="#i-data"/></svg>Data</a>{% endif -%}
-          {%- if d.links.paper and d.links.paper != "" %}<a class="lbtn" href="{{ d.links.paper }}"><svg class="i"><use href="#i-file"/></svg>Paper</a>{% endif -%}
-          {%- if d.links.code and d.links.code != "" %}<a class="lbtn" href="{{ d.links.code }}"><svg class="i"><use href="#i-code"/></svg>Code</a>{% endif -%}
+          {%- if d.links.project and d.links.project != "" %}<a class="lbtn" href="{{ d.links.project }}"><svg aria-hidden="true" focusable="false" class="i"><use href="#i-globe"/></svg>Project</a>{% endif -%}
+          {%- if d.links.data and d.links.data != "" %}<a class="lbtn" href="{{ d.links.data }}"><svg aria-hidden="true" focusable="false" class="i"><use href="#i-data"/></svg>Data</a>{% endif -%}
+          {%- if d.links.paper and d.links.paper != "" %}<a class="lbtn" href="{{ d.links.paper }}"><svg aria-hidden="true" focusable="false" class="i"><use href="#i-file"/></svg>Paper</a>{% endif -%}
+          {%- if d.links.code and d.links.code != "" %}<a class="lbtn" href="{{ d.links.code }}"><svg aria-hidden="true" focusable="false" class="i"><use href="#i-code"/></svg>Code</a>{% endif -%}
         </div>
       </article>
       {%- endfor %}
@@ -365,7 +365,7 @@
         <span class="talk__date">{{ t.date }}</span>
         <div class="talk__body">
           <span class="talk__venue">{% if t.url and t.url != "" %}<a href="{{ t.url }}">{{ t.venue }}</a>{% else %}{{ t.venue }}{% endif %}</span>
-          <span class="talk__title">{{ t.title }}{% if t.slides and t.slides != "" %} <a class="talk__slides" href="{{ t.slides }}"><svg class="i"><use href="#i-slides"/></svg>slides</a>{% endif %}</span>
+          <span class="talk__title">{{ t.title }}{% if t.slides and t.slides != "" %} <a class="talk__slides" href="{{ t.slides }}"><svg aria-hidden="true" focusable="false" class="i"><use href="#i-slides"/></svg>slides</a>{% endif %}</span>
         </div>
       </li>
       {%- endfor %}

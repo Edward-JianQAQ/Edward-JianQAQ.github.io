@@ -8,7 +8,7 @@
 
 - name: "CUA-Suite"
   domain: "Computer-use agents"
-  venue: "ICLR 2026 Workshop on Lifelong Agents · 2026"
+  venue: "ICLR 2026 Workshop on Lifelong Agents"
   role: "Co-first author · Corresponding"
   desc: >-
     A unified ecosystem of expert video demonstrations and dense annotations for training and
@@ -24,7 +24,7 @@
   components:
     - name: "VideoCUA"
       venue: "CUA-Suite · 2026"
-      role: "Co-first author"
+      role: "Co-first author · Corresponding"
       desc: "The largest open expert video corpus for desktop computer use, with cursor traces and multi-layered reasoning annotations."
       stats:
         - { value: "~55 h", label: "continuous 30 fps expert video" }
@@ -38,7 +38,7 @@
     - name: "GroundCUA"
       venue: "ICLR 2026"
       role: ""
-      desc: "Pixel-precise desktop grounding data built entirely by human annotators; it trains the GroundNext 3B/7B models, state of the art on five grounding benchmarks."
+      desc: "Pixel-precise desktop grounding data built entirely by human annotators; it trains the GroundNext 3B/7B models, state of the art at their scale on five grounding benchmarks."
       stats:
         - { value: "3.56M+", label: "human-verified UI element annotations" }
         - { value: "56K", label: "annotated screenshots" }
@@ -71,7 +71,7 @@
     BigDocs-Bench, 10 new tasks such as Screenshot2HTML, Table2LaTeX, and Image2SVG.
   stats:
     - { value: "7.5M", label: "training image–text pairs" }
-    - { value: "4M", label: "unique images" }
+    - { value: "4M", label: "unique training images" }
     - { value: "30", label: "tasks" }
     - { value: "10", label: "new benchmark tasks (BigDocs-Bench)" }
   links:
@@ -89,7 +89,7 @@
   stats:
     - { value: "100", label: "paper–poster pairs from NeurIPS, ICML, and ICLR" }
     - { value: "4", label: "evaluation dimensions, including PaperQuiz" }
-    - { value: "87%", label: "fewer tokens than GPT-4o-based systems (open-source PosterAgent)" }
+    - { value: "87%", label: "fewer tokens than GPT-4o multi-agent systems (open-source PosterAgent)" }
     - { value: "3.9k ★", label: "GitHub stars" }
   links:
     project: "https://paper2poster.github.io/"
