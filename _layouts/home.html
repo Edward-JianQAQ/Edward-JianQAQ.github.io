@@ -9,11 +9,13 @@
 {%- comment -%}
   Lead-author count for the highlights: peer-reviewed papers (kind conf / journal / demo, i.e. not
   preprint or workshop) where Xiangru Jian is listed first, marked * (co-first), or marked ✉
-  (corresponding). Set `lead: false` on a publication to leave it out.
+  (corresponding). On a publication, `lead: false` leaves it out and `lead: true` counts it
+  even if it is a workshop paper or preprint.
 {%- endcomment -%}
 {%- assign lead_total = 0 -%}{%- assign lead_corr = 0 -%}
 {%- for pub in pubs -%}
-  {%- if pub.kind == 'preprint' or pub.kind == 'workshop' or pub.lead == false -%}{%- continue -%}{%- endif -%}
+  {%- if pub.lead == false -%}{%- continue -%}{%- endif -%}
+  {%- if pub.lead != true and pub.kind == 'preprint' or pub.lead != true and pub.kind == 'workshop' -%}{%- continue -%}{%- endif -%}
   {%- assign mine = '' -%}{%- assign mine_pos = 0 -%}
   {%- for a in pub.authors -%}{%- if a contains 'Xiangru Jian' -%}{%- assign mine = a -%}{%- assign mine_pos = forloop.index -%}{%- endif -%}{%- endfor -%}
   {%- if mine_pos == 1 or mine contains '*' or mine contains '✉' -%}{%- assign lead_total = lead_total | plus: 1 -%}{%- endif -%}
@@ -79,11 +81,11 @@
     <ul class="navlinks">
       <li><a href="#top">About</a></li>
       <li><a href="#research">Research</a></li>
+      <li><a href="#news">News</a></li>
+      <li><a href="#publications">Publications</a></li>
       {%- if datasets.size > 0 %}
       <li><a href="#datasets">Datasets</a></li>
       {%- endif %}
-      <li><a href="#news">News</a></li>
-      <li><a href="#publications">Publications</a></li>
       <li><a href="#experience">Experience</a></li>
       <li><a href="#talks">Talks</a></li>
     </ul>
@@ -199,41 +201,6 @@
     </dl>
   </section>
 
-  <!-- ============ Datasets & benchmarks ============ -->
-  {%- if datasets.size > 0 %}
-  <section id="datasets" class="section">
-    <div class="section__head">
-      <h2>Datasets &amp; benchmarks</h2>
-      <span class="section__aside section__aside--muted">{{ datasets.size }} released</span>
-    </div>
-    {%- if p.datasets_intro %}
-    <p class="section__intro">{{ p.datasets_intro }}</p>
-    {%- endif %}
-    <div class="datasets">
-      {%- for d in datasets %}
-      <article class="dataset">
-        <header class="dataset__head">
-          <span class="dataset__domain">{{ d.domain }}</span>
-          <h3 class="dataset__name">{% if d.links.project and d.links.project != "" %}<a href="{{ d.links.project }}">{{ d.name }}</a>{% else %}{{ d.name }}{% endif %}</h3>
-          <p class="dataset__meta"><span class="dataset__venue">{{ d.venue }}</span>{% if d.role and d.role != "" %}<span class="dataset__role">{{ d.role }}</span>{% endif %}</p>
-        </header>
-        <p class="dataset__desc">{{ d.desc }}</p>
-        <dl class="dataset__stats">
-          {%- for st in d.stats %}
-          <div class="dstat"><dt>{{ st.value }}</dt><dd>{{ st.label }}</dd></div>
-          {%- endfor %}
-        </dl>
-        <div class="dataset__links">
-          {%- if d.links.data and d.links.data != "" %}<a class="lbtn" href="{{ d.links.data }}"><svg class="i"><use href="#i-data"/></svg>Data</a>{% endif -%}
-          {%- if d.links.paper and d.links.paper != "" %}<a class="lbtn" href="{{ d.links.paper }}"><svg class="i"><use href="#i-file"/></svg>Paper</a>{% endif -%}
-          {%- if d.links.code and d.links.code != "" %}<a class="lbtn" href="{{ d.links.code }}"><svg class="i"><use href="#i-code"/></svg>Code</a>{% endif -%}
-        </div>
-      </article>
-      {%- endfor %}
-    </div>
-  </section>
-  {%- endif %}
-
   <!-- ============ News ============ -->
   <section id="news" class="section">
     <div class="section__head">
@@ -287,6 +254,66 @@
     </ol>
     <p class="pubs__empty" id="pub-empty" hidden>No papers in this view. Try “All”.</p>
   </section>
+
+  <!-- ============ Datasets & benchmarks ============ -->
+  {%- if datasets.size > 0 %}
+  <section id="datasets" class="section">
+    <div class="section__head">
+      <h2>Datasets &amp; benchmarks</h2>
+      {%- assign ds_count = 0 %}{% for d in datasets %}{% if d.components %}{% assign ds_count = ds_count | plus: d.components.size %}{% else %}{% assign ds_count = ds_count | plus: 1 %}{% endif %}{% endfor %}
+      <span class="section__aside section__aside--muted">{{ ds_count }} datasets &amp; benchmarks</span>
+    </div>
+    {%- if p.datasets_intro %}
+    <p class="section__intro">{{ p.datasets_intro }}</p>
+    {%- endif %}
+    <div class="datasets">
+      {%- for d in datasets %}
+      <article class="dataset{% if d.components %} dataset--suite{% endif %}">
+        <header class="dataset__head">
+          <span class="dataset__domain">{{ d.domain }}</span>
+          <h3 class="dataset__name">{% if d.links.project and d.links.project != "" %}<a href="{{ d.links.project }}">{{ d.name }}</a>{% else %}{{ d.name }}{% endif %}</h3>
+          <p class="dataset__meta"><span class="dataset__venue">{{ d.venue }}</span>{% if d.role and d.role != "" %}<span class="dataset__role">{{ d.role }}</span>{% endif %}</p>
+        </header>
+        <p class="dataset__desc">{{ d.desc }}</p>
+        {%- if d.stats and d.stats.size > 0 %}
+        <dl class="dataset__stats dataset__stats--n{{ d.stats.size }}">
+          {%- for st in d.stats %}
+          <div class="dstat"><dt>{{ st.value }}</dt><dd>{{ st.label }}</dd></div>
+          {%- endfor %}
+        </dl>
+        {%- endif %}
+        {%- if d.components %}
+        <div class="suite">
+          {%- for c in d.components %}
+          <section class="suite__part">
+            <h4 class="suite__name">{% if c.links.project and c.links.project != "" %}<a href="{{ c.links.project }}">{{ c.name }}</a>{% else %}{{ c.name }}{% endif %}</h4>
+            <p class="dataset__meta"><span class="dataset__venue">{{ c.venue }}</span>{% if c.role and c.role != "" %}<span class="dataset__role">{{ c.role }}</span>{% endif %}</p>
+            <p class="suite__desc">{{ c.desc }}</p>
+            <dl class="dataset__stats dataset__stats--compact">
+              {%- for st in c.stats %}
+              <div class="dstat"><dt>{{ st.value }}</dt><dd>{{ st.label }}</dd></div>
+              {%- endfor %}
+            </dl>
+            <div class="dataset__links">
+              {%- if c.links.data and c.links.data != "" %}<a class="lbtn" href="{{ c.links.data }}"><svg class="i"><use href="#i-data"/></svg>Data</a>{% endif -%}
+              {%- if c.links.paper and c.links.paper != "" %}<a class="lbtn" href="{{ c.links.paper }}"><svg class="i"><use href="#i-file"/></svg>Paper</a>{% endif -%}
+              {%- if c.links.code and c.links.code != "" %}<a class="lbtn" href="{{ c.links.code }}"><svg class="i"><use href="#i-code"/></svg>Code</a>{% endif -%}
+            </div>
+          </section>
+          {%- endfor %}
+        </div>
+        {%- endif %}
+        <div class="dataset__links">
+          {%- if d.links.project and d.links.project != "" %}<a class="lbtn" href="{{ d.links.project }}"><svg class="i"><use href="#i-globe"/></svg>Project</a>{% endif -%}
+          {%- if d.links.data and d.links.data != "" %}<a class="lbtn" href="{{ d.links.data }}"><svg class="i"><use href="#i-data"/></svg>Data</a>{% endif -%}
+          {%- if d.links.paper and d.links.paper != "" %}<a class="lbtn" href="{{ d.links.paper }}"><svg class="i"><use href="#i-file"/></svg>Paper</a>{% endif -%}
+          {%- if d.links.code and d.links.code != "" %}<a class="lbtn" href="{{ d.links.code }}"><svg class="i"><use href="#i-code"/></svg>Code</a>{% endif -%}
+        </div>
+      </article>
+      {%- endfor %}
+    </div>
+  </section>
+  {%- endif %}
 
   <!-- ============ Experience & education ============ -->
   <section id="experience" class="section">

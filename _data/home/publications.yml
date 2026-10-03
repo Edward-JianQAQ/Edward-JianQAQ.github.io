@@ -26,6 +26,7 @@
   show: 5
   venue: "NeurIPS 2026 Datasets and Benchmarks Track"
   note: "* core contributors"
+  lead: false        # core contributor, not co-first author
   venue_short: "NeurIPS"
   year: 2026
   kind: conf
@@ -101,6 +102,7 @@
   venue_short: "ICLR-W"
   year: 2026
   kind: workshop
+  lead: true         # counted in the lead-author highlight
   topics: [agents, multimodal]
   selected: true
   awards: ["#1 HF Paper of the Day"]

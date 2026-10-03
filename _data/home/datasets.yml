@@ -1,32 +1,125 @@
-# PROVISIONAL — layout test only; numbers are being re-verified against primary sources.
+# Datasets & benchmarks section, in display order.
+# Every number comes from the paper, the official project page, or the official README
+# (checked October 2026). A card with `components` spans the full width and shows each part.
+#
+#   name, domain, venue, role (your role; leave "" to hide), desc
+#   stats:  2–4 { value, label }
+#   links:  project / data / paper / code (any can be omitted)
+
+- name: "CUA-Suite"
+  domain: "Computer-use agents"
+  venue: "ICLR 2026 Workshop on Lifelong Agents · 2026"
+  role: "Co-first author · Corresponding"
+  desc: >-
+    A unified ecosystem of expert video demonstrations and dense annotations for training and
+    evaluating desktop computer-use agents across 87 professional applications. The series has
+    500K+ downloads on Hugging Face.
+  stats:
+    - { value: "87", label: "open-source desktop apps in 12 categories" }
+    - { value: "~10K", label: "expert-designed tasks" }
+    - { value: "500K+", label: "Hugging Face downloads (series)" }
+  links:
+    project: "https://cua-suite.github.io/"
+    paper: "https://arxiv.org/abs/2603.24440"
+  components:
+    - name: "VideoCUA"
+      venue: "CUA-Suite · 2026"
+      role: "Co-first author"
+      desc: "The largest open expert video corpus for desktop computer use, with cursor traces and multi-layered reasoning annotations."
+      stats:
+        - { value: "~55 h", label: "continuous 30 fps expert video" }
+        - { value: "6M", label: "frames" }
+        - { value: "~10K", label: "human-demonstrated tasks" }
+        - { value: "87", label: "desktop apps" }
+      links:
+        project: "https://cua-suite.github.io/"
+        data: "https://huggingface.co/datasets/ServiceNow/VideoCUA"
+        code: "https://github.com/ServiceNow/GroundCUA/tree/main/VideoCUA"
+    - name: "GroundCUA"
+      venue: "ICLR 2026"
+      role: ""
+      desc: "Pixel-precise desktop grounding data built entirely by human annotators; it trains the GroundNext 3B/7B models, state of the art on five grounding benchmarks."
+      stats:
+        - { value: "3.56M+", label: "human-verified UI element annotations" }
+        - { value: "56K", label: "annotated screenshots" }
+        - { value: "700K", label: "instruction-tuning samples for GroundNext" }
+        - { value: "87", label: "desktop apps" }
+      links:
+        project: "https://groundcua.github.io/"
+        data: "https://huggingface.co/datasets/ServiceNow/GroundCUA"
+        code: "https://github.com/ServiceNow/GroundCUA"
+    - name: "UI-Vision"
+      venue: "ICML 2025"
+      role: "Co-first author · Corresponding"
+      desc: "A license-permissive desktop benchmark for element grounding, layout grounding, and action prediction."
+      stats:
+        - { value: "450", label: "human demonstrations" }
+        - { value: "8.2K+", label: "query–label pairs" }
+        - { value: "83", label: "apps across 6 domains" }
+        - { value: "3", label: "evaluation tasks" }
+      links:
+        project: "https://uivision.github.io/"
+        data: "https://huggingface.co/datasets/ServiceNow/ui-vision"
+        code: "https://github.com/uivision/UI-Vision"
+
 - name: "BigDocs"
   domain: "Documents & code"
   venue: "ICLR 2025"
   role: "Co-first author · Project lead"
-  desc: "An open, license-permissive dataset for training multimodal models on document understanding and code generation."
+  desc: >-
+    An open, license-permissive dataset for document understanding and code generation, plus
+    BigDocs-Bench, 10 new tasks such as Screenshot2HTML, Table2LaTeX, and Image2SVG.
   stats:
-    - { value: "7.5M", label: "multimodal documents" }
+    - { value: "7.5M", label: "training image–text pairs" }
+    - { value: "4M", label: "unique images" }
     - { value: "30", label: "tasks" }
-  links: { project: "https://bigdocs.github.io/", paper: "https://arxiv.org/abs/2412.04626", data: "https://huggingface.co/datasets/ServiceNow/BigDocs-7.5M" }
+    - { value: "10", label: "new benchmark tasks (BigDocs-Bench)" }
+  links:
+    project: "https://bigdocs.github.io/"
+    data: "https://huggingface.co/datasets/ServiceNow/BigDocs-7.5M"
+    paper: "https://arxiv.org/abs/2412.04626"
 
-- name: "GroundCUA"
-  domain: "Desktop GUI agents"
-  venue: "ICLR 2026"
-  role: ""
-  desc: "Human-annotated desktop grounding data; the GroundNext models trained on it reach state of the art on five benchmarks."
-  stats:
-    - { value: "3.56M", label: "UI element annotations" }
-    - { value: "56K", label: "screenshots" }
-    - { value: "87", label: "desktop apps" }
-  links: { project: "https://groundcua.github.io/", code: "https://github.com/ServiceNow/GroundCUA" }
-
-- name: "VideoCUA"
-  domain: "Desktop GUI agents"
-  venue: "CUA-Suite · 2026"
+- name: "Paper2Poster"
+  domain: "Documents & agents"
+  venue: "NeurIPS 2025 Datasets & Benchmarks"
   role: "Co-first author"
-  desc: "Expert video demonstrations of desktop tasks with cursor traces and reasoning annotations."
+  desc: >-
+    The first benchmark and metric suite for academic poster generation, with PosterAgent, a
+    multi-agent pipeline that turns papers into editable posters. Oral at the ICML 2025 MAS Workshop.
   stats:
-    - { value: "~10K", label: "tasks" }
-    - { value: "55 h", label: "of 30 fps video" }
-    - { value: "87", label: "apps" }
-  links: { project: "https://cua-suite.github.io/", data: "https://huggingface.co/datasets/ServiceNow/VideoCUA" }
+    - { value: "100", label: "paper–poster pairs from NeurIPS, ICML, and ICLR" }
+    - { value: "4", label: "evaluation dimensions, including PaperQuiz" }
+    - { value: "87%", label: "fewer tokens than GPT-4o-based systems (open-source PosterAgent)" }
+    - { value: "3.9k ★", label: "GitHub stars" }
+  links:
+    project: "https://paper2poster.github.io/"
+    data: "https://huggingface.co/datasets/Paper2Poster/Paper2Poster"
+    code: "https://github.com/Paper2Poster/Paper2Poster"
+
+- name: "GraphOmni"
+  domain: "Graphs & LLMs"
+  venue: "ICLR 2026"
+  role: "Co-first author · Project lead · Corresponding"
+  desc: "A benchmark of LLM reasoning on graph-theoretic problems that varies graph type, serialization format, and prompt scheme across three difficulty levels."
+  stats:
+    - { value: "241K", label: "question–answer samples" }
+    - { value: "6", label: "graph-theoretic tasks" }
+    - { value: "7 × 7", label: "graph types × serialization formats" }
+    - { value: "9", label: "prompt schemes" }
+  links:
+    project: "https://gai-community.github.io/Graph-Omni/"
+    data: "https://huggingface.co/datasets/G-A-I/GraphOmni"
+    code: "https://github.com/GAI-Community/GraphOmni"
+
+- name: "GraphAbstract"
+  domain: "Graphs & vision"
+  venue: "NeurIPS 2025"
+  role: "Co-first author"
+  desc: "A benchmark of holistic graph-structure perception (archetypes, symmetry, connectivity strength, critical elements), tested on progressively larger out-of-distribution graphs."
+  stats:
+    - { value: "4", label: "structural-understanding tasks" }
+    - { value: "3", label: "test scales: in-distribution, near-OOD, far-OOD" }
+    - { value: "150", label: "nodes per graph at the far-OOD scale (max)" }
+  links:
+    paper: "https://openreview.net/forum?id=6qBK9ePmtM"
+    code: "https://github.com/LOGO-CUHKSZ/GraphAbstract"
