@@ -123,3 +123,53 @@
   links:
     paper: "https://openreview.net/forum?id=6qBK9ePmtM"
     code: "https://github.com/LOGO-CUHKSZ/GraphAbstract"
+
+- name: "TRL-Bench"
+  domain: "Tables"
+  venue: "NeurIPS 2026 Datasets & Benchmarks"
+  role: "Core contributor"
+  desc: >-
+    A representation-level benchmark that probes frozen row, column, and table embeddings from
+    tabular encoders with shared lightweight heads, across three suites: TRL-CTbench, TRL-Rbench, and TRL-DLTE.
+  stats:
+    - { value: "20", label: "tabular encoders evaluated" }
+    - { value: "16", label: "tasks in three suites" }
+    - { value: "87", label: "datasets" }
+    - { value: "47,772", label: "tables in the TRL-DLTE data lake" }
+  links:
+    project: "https://logo-cuhksz.github.io/trl-bench.github.io/"
+    paper: "https://arxiv.org/abs/2606.09323"
+    code: "https://github.com/LOGO-CUHKSZ/TRL-Bench"
+
+- name: "FORGE"
+  domain: "Manufacturing"
+  venue: "Findings of EMNLP 2026"
+  role: "Co-first author"
+  desc: >-
+    A manufacturing benchmark of real 2D images and 3D point clouds annotated down to exact model
+    numbers, covering workpiece verification, surface inspection, and assembly verification.
+  stats:
+    - { value: "3,320", label: "evaluation cases" }
+    - { value: "90", label: "distinct model numbers" }
+    - { value: "14", label: "workpiece categories" }
+    - { value: "18", label: "MLLMs evaluated" }
+  links:
+    project: "https://ai4manufacturing.github.io/forge-web/"
+    data: "https://huggingface.co/datasets/AI4Manufacturing/forge"
+    paper: "https://arxiv.org/abs/2604.07413"
+    code: "https://github.com/AI4Manufacturing/FORGE"
+
+- name: "MolCAR"
+  domain: "Molecules"
+  venue: "MolEmb · ICML 2026 Workshop (FM4LS)"
+  role: ""
+  desc: >-
+    A molecular context-aware retrieval benchmark from the MolEmb paper: it tests whether task
+    instructions let molecular embeddings retrieve the right context when molecule identity alone is not enough.
+  stats:
+    - { value: "4,092", label: "molecule–context evaluation pairs" }
+    - { value: "10,844", label: "training pairs (MolCAR-Train)" }
+    - { value: "1,653", label: "held-out molecules" }
+    - { value: "8", label: "property-prediction task families" }
+  links:
+    paper: "https://arxiv.org/abs/2608.23646"

@@ -261,7 +261,7 @@
     <div class="section__head">
       <h2>Datasets &amp; benchmarks</h2>
       {%- assign ds_count = 0 %}{% for d in datasets %}{% if d.components %}{% assign ds_count = ds_count | plus: d.components.size %}{% else %}{% assign ds_count = ds_count | plus: 1 %}{% endif %}{% endfor %}
-      <span class="section__aside section__aside--muted">{{ ds_count }} datasets &amp; benchmarks</span>
+      <span class="section__aside section__aside--muted">{{ ds_count }} total</span>
     </div>
     {%- if p.datasets_intro %}
     <p class="section__intro">{{ p.datasets_intro }}</p>
