@@ -1,0 +1,170 @@
+# Everything on the homepage except news and publications lives here.
+# Edit freely; the layout (_layouts/home.html) renders whatever is in this file.
+
+name: "Xiangru (Edward) Jian"
+name_html: 'Xiangru <span class="name__nick">(Edward)</span> Jian'
+name_native: ""            # e.g. Chinese name; leave empty to hide
+pronunciation: ""          # e.g. "shee-ahng-roo jee-en"; leave empty to hide
+role: "Ph.D. student in Computer Science"
+affiliation: "Data Systems Group · University of Waterloo"
+affiliation_url: "https://uwaterloo.ca/data-systems-group/"
+location: "Waterloo, Canada"
+email: "xiangru.jian@uwaterloo.ca"
+photo: "/images/xiangru_portrait.jpg"
+cv: "/files/CV_Xiangru_Jian_latest.pdf"
+last_updated: "October 2026"
+
+links:
+  - { label: "Email",          icon: mail,     url: "mailto:xiangru.jian@uwaterloo.ca" }
+  - { label: "Google Scholar", icon: scholar,  url: "https://scholar.google.ca/citations?user=kq17trAAAAAJ&hl=en" }
+  - { label: "GitHub",         icon: github,   url: "https://github.com/Edward-JianQAQ" }
+  - { label: "LinkedIn",       icon: linkedin, url: "https://www.linkedin.com/in/xiangru-j-65702b230" }
+  - { label: "X / Twitter",    icon: x,        url: "https://twitter.com/EdwardJian2" }
+
+# ---- Job market card -------------------------------------------------------
+job_market:
+  enabled: true
+  graduation: "May 2027"
+  positions:
+    - "Tenure-track Assistant Professor"
+    - "Postdoctoral Researcher"
+    - "Industry Research Scientist"
+  # Optional documents; leave url empty to hide a button
+  documents:
+    - { label: "Research statement", url: "" }
+    - { label: "Teaching statement", url: "" }
+
+# ---- Research --------------------------------------------------------------
+vision: >-
+  I build systems that let LLM agents answer hard analytical questions over data that is
+  scattered, heterogeneous, and multimodal: relational and graph databases, documents,
+  videos, and the desktop software where much of that data actually lives.
+
+thesis: "A Multi-Agent Architecture for Complex Analytical Tasks over Heterogeneous Federated Systems"
+
+themes:
+  - key: data
+    title: "Agentic data management"
+    icon: database
+    text: >-
+      Natural-language interfaces to relational and graph databases, multi-agent analytics
+      over federated data lakes, and the interplay between LLMs and data management systems.
+    works:
+      - { name: "RA-SQL",        venue: "SIGMOD '27" }
+      - { name: "InteracSPARQL", venue: "ACL '26 F",  url: "https://arxiv.org/abs/2511.02002" }
+      - { name: "LazyVLM",       venue: "ICDE '26",   url: "https://arxiv.org/abs/2505.21459" }
+      - { name: "LLM ⇄ DBMS duality", venue: "IEEE DEB", url: "http://sites.computer.org/debull/A26mar/p40.pdf" }
+  - key: agents
+    title: "Computer-use & tool-use agents"
+    icon: cursor
+    text: >-
+      Benchmarks, large-scale human demonstrations, grounding models, and RL training for agents
+      that operate real desktop software and tools (MCP).
+    works:
+      - { name: "UI-Vision",       venue: "ICML '25",  url: "https://uivision.github.io/" }
+      - { name: "GroundCUA",       venue: "ICLR '26",  url: "https://groundcua.github.io/" }
+      - { name: "CUA-Suite",       venue: "#1 HF paper", url: "https://cua-suite.github.io/" }
+      - { name: "StateAct",        venue: "preprint",  url: "https://arxiv.org/abs/2607.22798" }
+      - { name: "MCP-Universe RL", venue: "preprint",  url: "https://mcp-universe.github.io/mcpu-rl" }
+  - key: multimodal
+    title: "Multimodal & structured-data learning"
+    icon: layers
+    text: >-
+      Vision-language models for documents, posters, and molecules; LLMs and vision models on
+      graphs; representation learning for tables.
+    works:
+      - { name: "BigDocs",      venue: "ICLR '25",    url: "https://bigdocs.github.io/" }
+      - { name: "Paper2Poster", venue: "NeurIPS '25", url: "https://paper2poster.github.io/" }
+      - { name: "AlignVLM",     venue: "NeurIPS '25", url: "https://arxiv.org/abs/2502.01341" }
+      - { name: "GraphOmni",    venue: "ICLR '26",    url: "https://gai-community.github.io/Graph-Omni/" }
+      - { name: "TRL-Bench",    venue: "NeurIPS '26", url: "https://logo-cuhksz.github.io/trl-bench.github.io/" }
+
+# Short impact facts shown as chips under the research themes
+highlights:
+  - { value: "500K+",  label: "Hugging Face downloads of the UI-Vision / GroundCUA / CUA-Suite series", url: "https://huggingface.co/datasets/ServiceNow/VideoCUA" }
+  - { value: "3.9k ★", label: "GitHub stars for Paper2Poster", url: "https://paper2poster.github.io/" }
+  - { value: "#1",     label: "Hugging Face Paper of the Day (CUA-Suite)", url: "https://cua-suite.github.io/" }
+  - { value: "3 Orals", label: "EMNLP 2023 · IEEE BigData 2023 · ICML 2025 MAS Workshop" }
+
+# ---- Experience & education ------------------------------------------------
+experience:
+  - org: "Salesforce AI Research"
+    role: "Research Intern"
+    place: "Singapore"
+    dates: "May – Aug 2026"
+    detail: >-
+      Computer-use and MCP tool-use agents. Contributed to StateAct and MCP-Universe RL; responsible for data development
+      and reinforcement-learning training of the internal SFR-CUA model.
+    mentor: { name: "Junnan Li", url: "https://scholar.google.com/citations?user=MuUhwi0AAAAJ&hl=en" }
+  - org: "ServiceNow Research"
+    url: "https://www.servicenow.com/research/author/xiangru-jian.html"
+    role: "Visiting Researcher"
+    place: "Montreal, Canada"
+    dates: "Apr 2024 – May 2025"
+    detail: >-
+      Multimodal learning and GUI understanding: BigDocs, UI-Vision, GroundCUA, and CUA-Suite.
+    mentor: { name: "Sai Rajeswar", url: "https://scholar.google.com/citations?user=h-sqIigAAAAJ&hl=en" }
+  - org: "Hong Kong Institute of Data Science, CityU"
+    role: "Research Assistant"
+    place: "Hong Kong SAR"
+    dates: "Jul 2021 – Jun 2022"
+    detail: "Order prediction for industrial partners including Alibaba and HKTV Mall."
+  - org: "City University of Hong Kong"
+    role: "Research Assistant"
+    place: "Hong Kong SAR"
+    dates: "Jun – Aug 2021"
+    detail: "Loss landscapes of deep neural networks."
+
+education:
+  - school: "University of Waterloo"
+    url: "https://cs.uwaterloo.ca/"
+    degree: "Ph.D., Computer Science"
+    dates: "2022 – 2027 (expected)"
+    detail: 'Advisor: <a href="https://cs.uwaterloo.ca/~tozsu/">M. Tamer Özsu</a>'
+  - school: "City University of Hong Kong"
+    url: "https://www.ds.cityu.edu.hk/"
+    degree: "M.Sc., Data Science"
+    dates: "2020 – 2021"
+    detail: 'Advisor: <a href="https://yuyangcs.github.io/">Yu Yang</a> · Graduated with distinction, ranked 1st'
+  - school: "Tongji University"
+    url: "https://en.tongji.edu.cn/"
+    degree: "B.Eng., Civil Engineering; minor in Mathematics"
+    dates: "2014 – 2019"
+    detail: "Outstanding Graduate (top 5%)"
+
+# ---- Talks -----------------------------------------------------------------
+talks:
+  - date: "Sep 2026"
+    venue: "Peking University"
+    title: "Answering Complex Analytical Questions over Heterogeneous Federated Systems"
+  - date: "Mar 2026"
+    venue: "Tencent Hunyuan"
+    title: "Recent Efforts on CUAs' Data, Training, Evaluation, and (Potentially) Beyond"
+  - date: "Jan 2026"
+    venue: "Snowflake"
+    title: "Dedicated Multi-Agent System over Heterogeneous Data Lakes"
+  - date: "Jan 2026"
+    venue: "LlamaIndex"
+    url: "https://www.llamaindex.ai/"
+    title: "Multimodal Learning on Documents and Beyond"
+  - date: "Dec 2025"
+    venue: "ONDBD 2025"
+    url: "https://ondbd.ca/"
+    title: "An Interactive Tool for SPARQL Query Refinement Using Natural Language Explanations"
+    slides: "https://ondbd.ca/talk_2025/talk_11.pdf"
+
+# ---- Teaching, service, honors --------------------------------------------
+teaching:
+  - { course: "CS 338", name: "Computer Applications in Business: Databases", term: "Spring & Fall 2023" }
+  - { course: "CS 106", name: "Introduction to Computer Science 2", term: "Winter 2023" }
+  - { course: "CS 114", name: "Principles of Computing for Science", term: "Fall 2022" }
+
+service:
+  - { role: "Area Chair", venues: "ACL ARR" }
+  - { role: "Reviewer", venues: "ICLR · ICML · NeurIPS · AAAI · ECCV · ACL ARR · TMLR · TKDD · IEEE TBD · ACI Materials Journal" }
+  - { role: "External reviewer", venues: "VLDB 2023, 2024 · SIGMOD 2024 · CIKM 2022, 2023 · SIGIR 2022 · KDD 2022" }
+
+honors:
+  - { name: "Graduated with distinction, ranked 1st in the M.Sc. program", org: "City University of Hong Kong", year: "2021" }
+  - { name: "Outstanding Graduate (highest honor, top 5%)", org: "Tongji University", year: "2019" }
+  - { name: "National Scholarship (top 2%)", org: "", year: "2015" }

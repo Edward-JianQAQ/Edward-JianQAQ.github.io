@@ -1,0 +1,36 @@
+{%- assign pub = include.pub -%}
+{%- assign me = '<b class="me">Xiangru Jian</b>' -%}
+{%- assign shown = pub.show | default: 6 -%}
+{%- assign hidden_count = pub.authors.size | minus: shown -%}
+<li class="pub" data-topics="{{ pub.topics | join: ' ' }}" data-selected="{% if pub.selected %}1{% else %}0{% endif %}">
+  <div class="pub__venue">
+    <span class="venue venue--{{ pub.kind | default: 'conf' }}">{{ pub.venue_short }}</span>
+    <span class="pub__year">{{ pub.year }}</span>
+  </div>
+  <div class="pub__body">
+    <h3 class="pub__title">
+      {%- assign main = pub.links.paper | default: pub.links.project -%}
+      {%- if main %}<a href="{{ main }}">{{ pub.title }}</a>{% else %}{{ pub.title }}{% endif -%}
+    </h3>
+    <p class="pub__authors">
+      {%- for a in pub.authors limit: shown -%}
+        {{ a | replace: 'Xiangru Jian', me }}{% unless forloop.last %}, {% endunless %}
+      {%- endfor -%}
+      {%- if hidden_count > 0 -%}
+        <span class="more-authors" hidden>{% for a in pub.authors offset: shown %}, {{ a | replace: 'Xiangru Jian', me }}{% endfor %}</span>
+        <button type="button" class="more-toggle" aria-expanded="false">+{{ hidden_count }} more</button>
+      {%- endif -%}
+    </p>
+    <p class="pub__where"><i>{{ pub.venue }}</i>{% if pub.note %} · {{ pub.note }}{% endif %}</p>
+    {%- if pub.tldr %}
+    <p class="pub__tldr">{{ pub.tldr }}</p>
+    {%- endif %}
+    <div class="pub__links">
+      {%- for award in pub.awards %}<span class="award">{{ award }}</span>{% endfor -%}
+      {%- if pub.links.paper %}<a class="lbtn" href="{{ pub.links.paper }}"><svg class="i"><use href="#i-file"/></svg>Paper</a>{% endif -%}
+      {%- if pub.links.project %}<a class="lbtn" href="{{ pub.links.project }}"><svg class="i"><use href="#i-globe"/></svg>Project</a>{% endif -%}
+      {%- if pub.links.code %}<a class="lbtn" href="{{ pub.links.code }}"><svg class="i"><use href="#i-code"/></svg>Code</a>{% endif -%}
+      {%- if pub.links.data %}<a class="lbtn" href="{{ pub.links.data }}"><svg class="i"><use href="#i-data"/></svg>Data</a>{% endif -%}
+    </div>
+  </div>
+</li>

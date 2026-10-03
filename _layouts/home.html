@@ -1,0 +1,323 @@
+---
+---
+{%- assign p = site.data.home.profile -%}
+{%- assign pubs = site.data.home.publications -%}
+{%- assign news = site.data.home.news -%}
+{%- assign base = site.baseurl -%}
+{%- assign news_visible = 7 -%}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>{{ p.name }} · University of Waterloo</title>
+  <meta name="description" content="{{ p.name }} is a Ph.D. student at the University of Waterloo working on multimodal and agentic data management. On the job market for faculty, postdoc, and industry research positions.">
+  <meta name="author" content="{{ p.name }}">
+  <link rel="canonical" href="{{ site.url }}">
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="{{ p.name }}">
+  <meta property="og:description" content="Ph.D. student at the University of Waterloo · Multimodal and agentic data management · On the job market">
+  <meta property="og:url" content="{{ site.url }}">
+  <meta property="og:image" content="{{ site.url | remove_last: '/' }}{{ base }}{{ p.photo }}">
+  <meta name="twitter:card" content="summary">
+  <meta name="theme-color" content="#fbfcfe" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0e131a" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="{{ base }}/images/favicon.ico">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('xj-theme');
+        if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+      } catch (e) {}
+      document.documentElement.classList.add('js');
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&display=swap">
+  <link rel="stylesheet" href="{{ base }}/assets/css/home.css?v={{ site.time | date: '%Y%m%d%H%M' }}">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Xiangru Jian",
+    "alternateName": "Edward Jian",
+    "jobTitle": "Ph.D. Student",
+    "affiliation": { "@type": "CollegeOrUniversity", "name": "University of Waterloo" },
+    "email": "mailto:{{ p.email }}",
+    "url": "{{ site.url }}",
+    "image": "{{ site.url | remove_last: '/' }}{{ base }}{{ p.photo }}",
+    "sameAs": [{% for l in p.links %}{% unless l.icon == 'mail' %}"{{ l.url }}"{% unless forloop.last %},{% endunless %}{% endunless %}{% endfor %}]
+  }
+  </script>
+</head>
+<body>
+{% include home/icons.html %}
+<a class="skip" href="#research">Skip to research</a>
+<div class="progress" aria-hidden="true"><span id="progress-bar"></span></div>
+
+<header class="topbar">
+  <nav class="topbar__inner wrap" aria-label="Sections">
+    <a class="brand" href="#top">Xiangru Jian</a>
+    <ul class="navlinks">
+      <li><a href="#top">About</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#news">News</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#talks">Talks</a></li>
+    </ul>
+    <div class="topbar__actions">
+      <a class="btn btn--small btn--solid" href="{{ base }}{{ p.cv }}"><svg class="i"><use href="#i-file"/></svg>CV</a>
+      <button class="theme-toggle" type="button" id="theme-toggle" aria-label="Switch color theme" title="Switch color theme">
+        <svg class="i i--sun"><use href="#i-sun"/></svg><svg class="i i--moon"><use href="#i-moon"/></svg>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<main id="top" class="wrap">
+
+  <!-- ============ Hero ============ -->
+  <section class="hero" aria-label="About">
+    <div class="hero__text">
+      <h1 class="name">{{ p.name_html | default: p.name }}{% if p.name_native != "" %} <span class="name__native" lang="zh">{{ p.name_native }}</span>{% endif %}</h1>
+      <p class="hero__role">{{ p.role }} · <a href="{{ p.affiliation_url }}">{{ p.affiliation }}</a></p>
+      <div class="bio">
+        {{ content }}
+      </div>
+      <ul class="links" aria-label="Profiles">
+        {%- for l in p.links %}
+        <li><a class="link-chip" href="{{ l.url }}"><svg class="i"><use href="#i-{{ l.icon }}"/></svg>{{ l.label }}</a></li>
+        {%- endfor %}
+      </ul>
+    </div>
+    <figure class="hero__photo">
+      <img src="{{ base }}{{ p.photo }}" alt="Portrait of Xiangru Jian" width="560" height="700">
+      <figcaption><svg class="i"><use href="#i-pin"/></svg>{{ p.location }}</figcaption>
+    </figure>
+  </section>
+
+  <!-- ============ Job market console ============ -->
+  {%- if p.job_market.enabled %}
+  <section class="market" aria-labelledby="market-title">
+    <div class="market__bar">
+      <span class="dots" aria-hidden="true"><span></span><span></span><span></span></span>
+      <span class="market__path">psql · xiangru@uwaterloo</span>
+      <span class="market__status" id="market-title"><span class="pulse" aria-hidden="true"></span>On the job market, 2026–27</span>
+    </div>
+    <div class="market__body">
+      <pre class="sql" aria-label="SQL query: select open positions"><span class="pr">xiangru=#</span> <span class="kw">SELECT</span> position, status
+<span class="pr">xiangru-#</span>   <span class="kw">FROM</span> job_market
+<span class="pr">xiangru-#</span>  <span class="kw">WHERE</span> available_from = <span class="str">'{{ p.job_market.graduation }}'</span>;</pre>
+      <div class="psql-wrap">
+        <table class="psql">
+          <thead><tr><th scope="col">position</th><th scope="col">status</th></tr></thead>
+          <tbody>
+            {%- for pos in p.job_market.positions %}
+            <tr><td>{{ pos }}</td><td><span class="ok">open</span></td></tr>
+            {%- endfor %}
+          </tbody>
+        </table>
+        <p class="psql-foot">({{ p.job_market.positions | size }} rows)</p>
+      </div>
+      <p class="sql sql--last" aria-hidden="true"><span class="pr">xiangru=#</span> <span class="caret"></span></p>
+    </div>
+    <div class="market__foot">
+      <p class="market__note">I expect to complete my Ph.D. in <b>{{ p.job_market.graduation }}</b> and would be glad to talk about faculty, postdoc, and research scientist roles.</p>
+      <div class="market__actions">
+        <a class="btn btn--light" href="{{ base }}{{ p.cv }}"><svg class="i"><use href="#i-download"/></svg>Download CV</a>
+        {%- for d in p.job_market.documents %}{% if d.url != "" %}
+        <a class="btn btn--ghost" href="{{ d.url }}"><svg class="i"><use href="#i-file"/></svg>{{ d.label }}</a>
+        {%- endif %}{% endfor %}
+        <span class="email-copy">
+          <a class="btn btn--ghost" href="mailto:{{ p.email }}"><svg class="i"><use href="#i-mail"/></svg><span class="email-text">{{ p.email }}</span></a>
+          <button class="copy" type="button" data-copy="{{ p.email }}" aria-label="Copy email address" title="Copy email address"><svg class="i"><use href="#i-copy"/></svg><span class="copy__done" aria-live="polite"></span></button>
+        </span>
+      </div>
+    </div>
+  </section>
+  {%- endif %}
+
+  <!-- ============ Research ============ -->
+  <section id="research" class="section">
+    <div class="section__head">
+      <h2>Research</h2>
+    </div>
+    <p class="vision">{{ p.vision }}</p>
+    <p class="thesis"><span class="label">Thesis (tentative)</span> <span class="thesis__title">{{ p.thesis }}</span></p>
+
+    <div class="themes">
+      {%- for t in p.themes %}
+      <article class="theme">
+        <div class="theme__icon"><svg class="i"><use href="#i-{{ t.icon }}"/></svg></div>
+        <h3 class="theme__title">{{ t.title }}</h3>
+        <p class="theme__text">{{ t.text }}</p>
+        <ul class="works">
+          {%- for w in t.works %}
+          <li>{% if w.url %}<a class="work" href="{{ w.url }}">{% else %}<span class="work">{% endif %}<span class="work__name">{{ w.name }}</span><span class="work__venue">{{ w.venue }}</span>{% if w.url %}</a>{% else %}</span>{% endif %}</li>
+          {%- endfor %}
+        </ul>
+      </article>
+      {%- endfor %}
+    </div>
+
+    <dl class="highlights">
+      {%- for h in p.highlights %}
+      <div class="highlight">
+        <dt>{% if h.url %}<a href="{{ h.url }}">{{ h.value }}</a>{% else %}{{ h.value }}{% endif %}</dt>
+        <dd>{{ h.label }}</dd>
+      </div>
+      {%- endfor %}
+    </dl>
+  </section>
+
+  <!-- ============ News ============ -->
+  <section id="news" class="section">
+    <div class="section__head">
+      <h2>News</h2>
+    </div>
+    <ol class="news" id="news-list">
+      {%- for n in news %}
+      <li class="news__item{% if forloop.index > news_visible %} is-extra{% endif %}">
+        <time class="news__date">{{ n.date }}</time>
+        <span class="news__tag news__tag--{{ n.tag }}">{{ n.tag }}</span>
+        <p class="news__text">{{ n.text }}</p>
+      </li>
+      {%- endfor %}
+    </ol>
+    {%- if news.size > news_visible %}
+    <button class="more-btn" type="button" id="news-toggle" aria-controls="news-list" aria-expanded="false"
+      data-more="Show all {{ news.size }} updates" data-less="Show fewer updates">Show all {{ news.size }} updates</button>
+    {%- endif %}
+  </section>
+
+  <!-- ============ Publications ============ -->
+  <section id="publications" class="section">
+    <div class="section__head">
+      <h2>Publications</h2>
+      <a class="section__aside" href="{{ p.links[1].url }}">Google Scholar <svg class="i"><use href="#i-arrow"/></svg></a>
+    </div>
+
+    <div class="pubbar" role="group" aria-label="Filter publications">
+      <div class="seg" role="radiogroup" aria-label="Which publications">
+        <button type="button" class="seg__btn" data-mode="selected" aria-pressed="true">Selected</button>
+        <button type="button" class="seg__btn" data-mode="all" aria-pressed="false">All <span class="seg__count">{{ pubs.size }}</span></button>
+      </div>
+      <div class="topics" aria-label="Topic">
+        <button type="button" class="topic" data-topic="all" aria-pressed="true">All topics</button>
+        <button type="button" class="topic" data-topic="agents" aria-pressed="false">Agents</button>
+        <button type="button" class="topic" data-topic="data" aria-pressed="false">Data management</button>
+        <button type="button" class="topic" data-topic="multimodal" aria-pressed="false">Multimodal</button>
+        <button type="button" class="topic" data-topic="graph" aria-pressed="false">Graph &amp; tabular</button>
+        <button type="button" class="topic" data-topic="learning" aria-pressed="false">Retrieval &amp; optimization</button>
+      </div>
+    </div>
+    <p class="legend"><span>* equal contribution</span><span>† project lead</span><span>✉&#xFE0E; corresponding author</span><span class="legend__count" id="pub-count" aria-live="polite"></span></p>
+
+    <ol class="pubs" id="pub-list">
+      {%- for pub in pubs %}
+      {% include home/pub.html pub=pub %}
+      {%- endfor %}
+    </ol>
+    <p class="pubs__empty" id="pub-empty" hidden>No papers in this view. Try “All”.</p>
+  </section>
+
+  <!-- ============ Experience & education ============ -->
+  <section id="experience" class="section">
+    <div class="section__head">
+      <h2>Experience</h2>
+    </div>
+    <div class="cols cols--exp">
+      <div>
+        <h3 class="col__label">Research positions</h3>
+        <ol class="timeline">
+          {%- for e in p.experience %}
+          <li class="tl">
+            <div class="tl__head">
+              <span class="tl__org">{% if e.url %}<a href="{{ e.url }}">{{ e.org }}</a>{% else %}{{ e.org }}{% endif %}</span>
+              <span class="tl__dates">{{ e.dates }}</span>
+            </div>
+            <p class="tl__role">{{ e.role }} · {{ e.place }}</p>
+            <p class="tl__detail">{{ e.detail }}{% if e.mentor %} <span class="tl__mentor">Mentor: <a href="{{ e.mentor.url }}">{{ e.mentor.name }}</a></span>{% endif %}</p>
+          </li>
+          {%- endfor %}
+        </ol>
+      </div>
+      <div>
+        <h3 class="col__label">Education</h3>
+        <ol class="timeline">
+          {%- for e in p.education %}
+          <li class="tl">
+            <div class="tl__head">
+              <span class="tl__org"><a href="{{ e.url }}">{{ e.school }}</a></span>
+            </div>
+            <p class="tl__role">{{ e.degree }}</p>
+            <p class="tl__dates tl__dates--block">{{ e.dates }}</p>
+            <p class="tl__detail">{{ e.detail }}</p>
+          </li>
+          {%- endfor %}
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Talks ============ -->
+  <section id="talks" class="section">
+    <div class="section__head">
+      <h2>Invited talks</h2>
+    </div>
+    <ol class="talks">
+      {%- for t in p.talks %}
+      <li class="talk">
+        <time class="talk__date">{{ t.date }}</time>
+        <div class="talk__body">
+          <span class="talk__venue">{% if t.url %}<a href="{{ t.url }}">{{ t.venue }}</a>{% else %}{{ t.venue }}{% endif %}</span>
+          <span class="talk__title">{{ t.title }}{% if t.slides %} <a class="talk__slides" href="{{ t.slides }}"><svg class="i"><use href="#i-slides"/></svg>slides</a>{% endif %}</span>
+        </div>
+      </li>
+      {%- endfor %}
+    </ol>
+  </section>
+
+  <!-- ============ Teaching / Service / Honors ============ -->
+  <section id="service" class="section">
+    <div class="cols cols--three">
+      <div>
+        <h2 class="h2--small">Teaching</h2>
+        <ul class="plain">
+          {%- for c in p.teaching %}
+          <li><span class="course">{{ c.course }}</span> {{ c.name }}<span class="sub">Teaching assistant · {{ c.term }}</span></li>
+          {%- endfor %}
+        </ul>
+      </div>
+      <div>
+        <h2 class="h2--small">Service</h2>
+        <ul class="plain">
+          {%- for s in p.service %}
+          <li><b>{{ s.role }}</b><span class="sub">{{ s.venues }}</span></li>
+          {%- endfor %}
+        </ul>
+      </div>
+      <div>
+        <h2 class="h2--small">Honors</h2>
+        <ul class="plain">
+          {%- for h in p.honors %}
+          <li>{{ h.name }}<span class="sub">{% if h.org != "" %}{{ h.org }} · {% endif %}{{ h.year }}</span></li>
+          {%- endfor %}
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap footer__inner">
+    <p>© {{ site.time | date: '%Y' }} Xiangru Jian · Last updated {{ p.last_updated }}</p>
+    <p><a href="mailto:{{ p.email }}">{{ p.email }}</a> · <a href="#top">Back to top ↑</a></p>
+  </div>
+</footer>
+
+<script src="{{ base }}/assets/js/home.js?v={{ site.time | date: '%Y%m%d%H%M' }}" defer></script>
+</body>
+</html>

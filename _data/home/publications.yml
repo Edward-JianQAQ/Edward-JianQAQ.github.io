@@ -1,0 +1,391 @@
+# Publications shown on the homepage, in display order (newest first).
+#
+#   authors:     list; markers: * equal contribution, † project lead, ✉ corresponding author
+#   show:        how many authors to show before "+N more" (default 6)
+#   venue_short: text in the badge;  kind: conf | journal | workshop | demo | preprint
+#   topics:      any of agents, data, multimodal, graph, learning (used by the topic filter)
+#   selected:    true -> listed under "Selected"
+#   awards:      small gold labels (Oral, stars, ...)
+#   links:       paper / project / code / data (any can be omitted)
+
+- title: "RA-SQL: Relational Algebra as Deterministic Chain-of-Thought for Natural Language to SQL"
+  # TODO: full author list (no public version yet)
+  authors: ["Xiangru Jian", "et al."]
+  venue: "ACM SIGMOD International Conference on Management of Data (SIGMOD)"
+  venue_short: "SIGMOD"
+  year: 2027
+  kind: conf
+  topics: [data, agents]
+  selected: true
+  tldr: >-
+    Serializes queries as relational-algebra operator trees and uses them as a deterministic chain of thought,
+    so the model reasons in RA before it writes SQL.
+  links: {}
+
+- title: "TRL-Bench: Standardizing Cross-Paradigm Representation-Level Evaluation of Tabular Encoders"
+  authors: ["Wei Pang*", "Xiangru Jian*", "Hehan Li*", "Zhixuan Yu*", "Alex Xue*", "Jinyang Li", "Zhengyuan Dong", "Xinjian Zhao", "Hao Xu", "Chao Zhang", "Reynold Cheng", "M. Tamer Özsu", "Tianshu Yu✉"]
+  show: 5
+  venue: "NeurIPS 2026 Datasets and Benchmarks Track"
+  venue_short: "NeurIPS"
+  year: 2026
+  kind: conf
+  topics: [graph, data]
+  selected: true
+  tldr: >-
+    Probes row, column, and table embeddings from 20 tabular encoders across 16 tasks and 87 datasets, and finds
+    that encoder quality is capability-specific rather than a single leaderboard.
+  links:
+    paper: "https://arxiv.org/abs/2606.09323"
+    project: "https://logo-cuhksz.github.io/trl-bench.github.io/"
+    code: "https://github.com/LOGO-CUHKSZ/TRL-Bench"
+
+- title: "FORGE: Fine-grained Multimodal Evaluation for Manufacturing Scenarios"
+  authors: ["Xiangru Jian*", "Hao Xu*✉", "Wei Pang*", "Xinjian Zhao", "Chengyu Tao", "Qixin Zhang", "Xikun Zhang✉", "Chao Zhang", "Guanzhi Deng", "Alex Xue", "Juan Du", "Tianshu Yu", "Garth Tarr", "Linqi Song", "Qiuzhuang Sun", "Dacheng Tao"]
+  show: 4
+  venue: "Findings of EMNLP 2026"
+  venue_short: "EMNLP F"
+  year: 2026
+  kind: conf
+  topics: [multimodal]
+  selected: true
+  tldr: >-
+    A benchmark of real 2D images and 3D point clouds annotated down to exact model numbers; across 18 MLLMs,
+    missing domain knowledge, not visual grounding, is the main bottleneck.
+  links:
+    paper: "https://arxiv.org/abs/2604.07413"
+    project: "https://ai4manufacturing.github.io/forge-web/"
+    code: "https://github.com/AI4Manufacturing/FORGE"
+
+- title: "MCP-Universe RL: A Framework for Training MCP Tool-Use Agents via Reinforcement Learning"
+  authors: ["Ziyang Luo", "Yan Yang", "Xiangru Jian", "Ziji Shi", "Xiaoqiang Lin", "Jun Hao Liew", "Silvio Savarese", "Junnan Li"]
+  show: 3
+  venue: "arXiv preprint"
+  venue_short: "arXiv"
+  year: 2026
+  kind: preprint
+  topics: [agents]
+  links:
+    paper: "https://arxiv.org/abs/2608.22167"
+    project: "https://mcp-universe.github.io/mcpu-rl"
+    code: "https://github.com/SalesforceAIResearch/MCP-Universe"
+
+- title: "StateAct: Program State, before Pixels, for Long-Horizon Computer-Use Agents"
+  authors: ["Yan Yang", "Xiangru Jian", "Ziyang Luo", "Zirui Zhao", "Yutong Dai", "Ziji Shi", "Hanshu Yan", "Jun Hao Liew", "Silvio Savarese", "Junnan Li"]
+  show: 3
+  venue: "arXiv preprint"
+  venue_short: "arXiv"
+  year: 2026
+  kind: preprint
+  topics: [agents]
+  selected: true
+  tldr: >-
+    A code-first multi-agent harness that grounds computer-use agents in program state and calls a GUI agent only
+    when needed, improving OSWorld success at about 9× lower cost per task.
+  links:
+    paper: "https://arxiv.org/abs/2607.22798"
+
+- title: "TEXAS: Task-Expert-Aware Supervision for Downstream Mixture-of-Experts LLM Adaptation"
+  authors: ["Guanzhi Deng", "Haibo Wang", "Kuan Wu", "Xiangru Jian", "Shing Yin Wong", "Sichun Luo", "Zhuoran Wang", "Linqi Song"]
+  show: 4
+  venue: "arXiv preprint"
+  venue_short: "arXiv"
+  year: 2026
+  kind: preprint
+  topics: [learning]
+  links:
+    paper: "https://arxiv.org/abs/2608.06396"
+
+- title: "CUA-Suite: Massive Human-annotated Video Demonstrations for Computer-Use Agents"
+  authors: ["Xiangru Jian*✉", "Shravan Nayak*", "Kevin Qinghong Lin", "Aarash Feizi", "Kaixin Li", "Patrice Bechard", "Spandana Gella", "Sai Rajeswar"]
+  venue: "arXiv preprint · short version at the ICLR 2026 Workshop on Lifelong Agents"
+  venue_short: "ICLR-W"
+  year: 2026
+  kind: workshop
+  topics: [agents, multimodal]
+  selected: true
+  awards: ["#1 HF Paper of the Day"]
+  tldr: >-
+    About 10K expert desktop tasks across 87 professional apps (55 hours of 30 fps video with cursor traces and
+    reasoning), unified with UI-Vision and GroundCUA into one ecosystem for training and evaluating CUAs.
+  links:
+    paper: "https://arxiv.org/abs/2603.24440"
+    project: "https://cua-suite.github.io/"
+    data: "https://huggingface.co/datasets/ServiceNow/VideoCUA"
+
+- title: "MolEmb: Multimodal Large Language Models Can Be Strong Molecular Embedding Models"
+  authors: ["Xinjian Zhao", "Xiangru Jian", "Yaoyao Xu", "Xiaozhuang Song", "Wei Pang", "Lei Bai", "Tianshu Yu"]
+  venue: "ICML 2026 Workshop on Multi-modal Foundation Models and LLMs for Life Sciences"
+  venue_short: "ICML-W"
+  year: 2026
+  kind: workshop
+  topics: [multimodal]
+  links:
+    paper: "https://arxiv.org/abs/2608.23646"
+
+- title: "The Duality between Large Language Models and Data Management Systems"
+  authors: ["M. Tamer Özsu", "Kerem Akillioglu", "Xiangru Jian"]
+  venue: "IEEE Data Engineering Bulletin, 50(1):40–58"
+  venue_short: "IEEE DEB"
+  year: 2026
+  kind: journal
+  topics: [data]
+  selected: true
+  tldr: >-
+    A two-way view of LLMs for databases and databases for LLMs, from LLM-synthesized database engines to data
+    systems that become agentic data environments.
+  links:
+    paper: "http://sites.computer.org/debull/A26mar/p40.pdf"
+
+- title: "InteracSPARQL: An Interactive System for SPARQL Query Refinement Using Natural Language Explanations"
+  authors: ["Xiangru Jian", "Zhengyuan Dong", "M. Tamer Özsu"]
+  venue: "Findings of ACL 2026"
+  venue_short: "ACL F"
+  year: 2026
+  kind: conf
+  topics: [data, agents]
+  selected: true
+  tldr: >-
+    A training-free refinement loop that explains generated SPARQL in natural language and lets users and LLMs fix
+    it, improving accuracy on QALD-9 and QALD-10.
+  links:
+    paper: "https://aclanthology.org/2026.findings-acl.1480/"
+    code: "https://github.com/Edward-JianQAQ/InteracSPARQL"
+
+- title: "GraphOmni: A Comprehensive and Extensible Benchmark Framework for Large Language Models on Graph-theoretic Tasks"
+  authors: ["Hao Xu*", "Xiangru Jian*†✉", "Xinjian Zhao*", "Wei Pang*", "Chao Zhang", "Suyuchen Wang", "Qixin Zhang", "Zhengyuan Dong", "Joao Monteiro", "Bang Liu", "Qiuzhuang Sun", "Tianshu Yu✉"]
+  show: 4
+  venue: "International Conference on Learning Representations (ICLR)"
+  venue_short: "ICLR"
+  year: 2026
+  kind: conf
+  topics: [graph]
+  selected: true
+  tldr: >-
+    Benchmarks LLM reasoning on graph problems across task, graph type, serialization, and prompt scheme, with an
+    RL-inspired selector that finds strong configurations cheaply.
+  links:
+    paper: "https://openreview.net/forum?id=dc8Kf2g0KC"
+    project: "https://gai-community.github.io/Graph-Omni/"
+    code: "https://github.com/GAI-Community/GraphOmni"
+
+- title: "Grounding Computer Use Agents on Human Demonstrations"
+  authors: ["Aarash Feizi*", "Shravan Nayak*", "Xiangru Jian", "Kevin Qinghong Lin", "Kaixin Li", "Rabiul Awal", "Xing Han Lù", "Johan Obando-Ceron", "Juan A. Rodriguez", "Nicolas Chapados", "David Vazquez", "Adriana Romero-Soriano", "Reihaneh Rabbany", "Perouz Taslakian", "Christopher Pal", "Spandana Gella", "Sai Rajeswar"]
+  show: 4
+  venue: "International Conference on Learning Representations (ICLR)"
+  venue_short: "ICLR"
+  year: 2026
+  kind: conf
+  topics: [agents, multimodal]
+  selected: true
+  tldr: >-
+    GroundCUA: 3.56M human-verified UI element annotations across 87 desktop apps. GroundNext models trained on it
+    reach state of the art on five grounding benchmarks with a tenth of the usual data.
+  links:
+    paper: "https://openreview.net/forum?id=9WiPZy3Kro"
+    project: "https://groundcua.github.io/"
+    code: "https://github.com/ServiceNow/GroundCUA"
+
+- title: "LazyVLM: Neuro-Symbolic Approach to Video Analytics"
+  authors: ["Xiangru Jian*†✉", "Wei Pang*", "Zhengyuan Dong*", "Chao Zhang*", "M. Tamer Özsu"]
+  venue: "IEEE International Conference on Data Engineering (ICDE), Demo Track"
+  venue_short: "ICDE"
+  year: 2026
+  kind: demo
+  topics: [data, multimodal]
+  selected: true
+  tldr: >-
+    Decomposes multi-frame video queries into fine-grained operations and pushes most of the work into relational
+    query execution and vector search, so video analytics scales beyond what VLMs alone can do.
+  links:
+    paper: "https://arxiv.org/abs/2505.21459"
+
+- title: "Spatio-temporal Traffic Accidents Detection via Graph-based Generative Adversarial Network"
+  authors: ["Lyuyi Zhu", "Qixin Zhang", "Xiangru Jian", "Yu Yang", "Lishuai Li"]
+  venue: "Engineering Applications of Artificial Intelligence, vol. 165"
+  venue_short: "EAAI"
+  year: 2026
+  kind: journal
+  topics: [graph]
+  links:
+    paper: "https://www.sciencedirect.com/science/article/pii/S0952197625035195"
+
+- title: "When Vision Meets Graphs: A Survey on Graph Reasoning and Learning"
+  authors: ["Xinjian Zhao", "Wei Pang", "Zhixuan Yu", "Xiangru Jian", "Xiaozhuang Song", "Yaoyao Xu", "Zhongkai Xue", "Dingshuo Chen", "Shu Wu", "Philip Torr", "Tianshu Yu"]
+  show: 4
+  venue: "arXiv preprint"
+  venue_short: "arXiv"
+  year: 2026
+  kind: preprint
+  topics: [graph, multimodal]
+  links:
+    paper: "https://arxiv.org/abs/2609.03816"
+
+- title: "Paper2Poster: Towards Multimodal Poster Automation from Scientific Papers"
+  authors: ["Wei Pang*", "Kevin Qinghong Lin*✉", "Xiangru Jian*", "Xi He✉", "Philip Torr"]
+  venue: "NeurIPS 2025 Datasets and Benchmarks Track · Oral at the ICML 2025 MAS Workshop"
+  venue_short: "NeurIPS"
+  year: 2025
+  kind: conf
+  topics: [multimodal, agents]
+  selected: true
+  awards: ["3.9k ★ on GitHub", "Oral (MAS @ ICML)"]
+  tldr: >-
+    The first benchmark and metric suite for academic poster generation, plus PosterAgent, a visual-in-the-loop
+    multi-agent pipeline that turns papers into editable posters.
+  links:
+    paper: "https://openreview.net/forum?id=p0E74lpRBD"
+    project: "https://paper2poster.github.io/"
+    code: "https://github.com/Paper2Poster/Paper2Poster"
+
+- title: "The Underappreciated Power of Vision Models for Graph Structural Understanding"
+  authors: ["Xinjian Zhao", "Wei Pang", "Zhongkai Xue", "Xiangru Jian", "Lei Zhang", "Yaoyao Xu", "Xiaozhuang Song", "Shu Wu", "Tianshu Yu"]
+  show: 4
+  venue: "Advances in Neural Information Processing Systems (NeurIPS)"
+  venue_short: "NeurIPS"
+  year: 2025
+  kind: conf
+  topics: [graph, multimodal]
+  links:
+    paper: "https://openreview.net/forum?id=6qBK9ePmtM"
+    code: "https://github.com/LOGO-CUHKSZ/GraphAbstract"
+
+- title: "AlignVLM: Bridging Vision and Language Latent Spaces for Multimodal Document Understanding"
+  authors: ["Ahmed Masry", "Juan A. Rodriguez", "Tianyu Zhang", "Suyuchen Wang", "Chao Wang", "Aarash Feizi", "Akshay Kalkunte Suresh", "Abhay Puri", "Xiangru Jian", "Pierre-André Noël", "Sathwik Tejaswi Madhusudhan", "Marco Pedersoli", "Bang Liu", "Nicolas Chapados", "Yoshua Bengio", "Enamul Hoque", "Christopher Pal", "Issam H. Laradji", "David Vazquez", "Perouz Taslakian", "Spandana Gella", "Sai Rajeswar"]
+  show: 9
+  venue: "Advances in Neural Information Processing Systems (NeurIPS)"
+  venue_short: "NeurIPS"
+  year: 2025
+  kind: conf
+  topics: [multimodal]
+  links:
+    paper: "https://arxiv.org/abs/2502.01341"
+    project: "https://alignvlm.github.io/"
+    code: "https://github.com/ServiceNow/AlignVLM"
+
+- title: "UI-Vision: A Desktop-centric GUI Benchmark for Visual Perception and Interaction"
+  authors: ["Shravan Nayak*✉", "Xiangru Jian*✉", "Kevin Qinghong Lin", "Juan A. Rodriguez", "Montek Kalsi", "Rabiul Awal", "Nicolas Chapados", "M. Tamer Özsu", "Aishwarya Agrawal", "David Vazquez", "Christopher Pal", "Perouz Taslakian", "Spandana Gella", "Sai Rajeswar"]
+  show: 4
+  venue: "International Conference on Machine Learning (ICML)"
+  venue_short: "ICML"
+  year: 2025
+  kind: conf
+  topics: [agents, multimodal]
+  selected: true
+  tldr: >-
+    A license-permissive desktop GUI benchmark over 83 applications with dense human annotations for element
+    grounding, layout grounding, and action prediction.
+  links:
+    paper: "https://arxiv.org/abs/2503.15661"
+    project: "https://uivision.github.io/"
+    code: "https://github.com/uivision/UI-Vision"
+
+- title: "BigDocs: An Open Dataset for Training Multimodal Models on Document and Code Tasks"
+  authors: ["Juan A. Rodriguez*", "Xiangru Jian*†", "Siba Smarak Panigrahi", "Tianyu Zhang", "Aarash Feizi", "Abhay Puri", "Akshay Kalkunte", "François Savard", "Ahmed Masry", "Shravan Nayak", "Rabiul Awal", "Mahsa Massoud", "Amirhossein Abaskohi", "Zichao Li", "Suyuchen Wang", "Pierre-André Noël", "Chao Wang", "Mats Leon Richter", "Saverio Vadacchino", "Shubham Agarwal", "Sanket Biswas", "Sara Shanian", "Ying Zhang", "Noah Bolger", "Kurt MacDonald", "Simon Fauvel", "Sathwik Tejaswi", "Srinivas Sunkara", "Joao Monteiro", "Krishnamurthy DJ Dvijotham", "Torsten Scholak", "Nicolas Chapados", "Sepideh Kharagani", "Sean Hughes", "M. Tamer Özsu", "Siva Reddy", "Marco Pedersoli", "Yoshua Bengio", "Christopher Pal", "Issam Laradji", "Spandana Gella", "Perouz Taslakian", "David Vazquez", "Sai Rajeswar"]
+  show: 4
+  venue: "International Conference on Learning Representations (ICLR)"
+  venue_short: "ICLR"
+  year: 2025
+  kind: conf
+  topics: [multimodal]
+  selected: true
+  tldr: >-
+    A 7.5M-sample, license-permissive dataset across 30 document and code tasks (e.g., screenshot-to-HTML,
+    table-to-LaTeX), released with the BigDocs-Bench benchmark.
+  links:
+    paper: "https://arxiv.org/abs/2412.04626"
+    project: "https://bigdocs.github.io/"
+    data: "https://huggingface.co/datasets/ServiceNow/BigDocs-7.5M"
+
+- title: "Rethinking Spectral Augmentation for Contrast-based Graph Self-Supervised Learning"
+  authors: ["Xiangru Jian*", "Xinjian Zhao*", "Wei Pang*", "Chaolong Ying", "Yimu Wang", "Yaoyao Xu", "Tianshu Yu"]
+  venue: "Transactions on Machine Learning Research (TMLR)"
+  venue_short: "TMLR"
+  year: 2025
+  kind: journal
+  topics: [graph]
+  links:
+    paper: "https://openreview.net/forum?id=HjpD5kpfa3"
+
+- title: "DREAM: Improving Video-Text Retrieval Through Relevance-Based Augmentation Using Large Foundation Models"
+  authors: ["Yimu Wang", "Shuai Yuan", "Bo Xue", "Xiangru Jian", "Wei Pang", "Mushi Wang", "Ning Yu"]
+  show: 4
+  venue: "NAACL 2025 (Long Papers)"
+  venue_short: "NAACL"
+  year: 2025
+  kind: conf
+  topics: [learning, multimodal]
+  links:
+    paper: "https://aclanthology.org/2025.naacl-long.156/"
+
+- title: "Graph Convolutional Network for Traffic Incidents Duration Classification"
+  authors: ["Lyuyi Zhu", "Qixin Zhang", "Xiangru Jian", "Yu Yang"]
+  venue: "Engineering Applications of Artificial Intelligence, vol. 151"
+  venue_short: "EAAI"
+  year: 2025
+  kind: journal
+  topics: [graph]
+  links:
+    paper: "https://www.sciencedirect.com/science/article/abs/pii/S0952197625005706"
+
+- title: "Scope: Selective Cross-modal Orchestration of Visual Perception Experts"
+  authors: ["Tianyu Zhang", "Suyuchen Wang", "Chao Wang", "Juan Rodriguez", "Ahmed Masry", "Xiangru Jian", "Yoshua Bengio", "Perouz Taslakian"]
+  venue: "arXiv preprint"
+  venue_short: "arXiv"
+  year: 2025
+  kind: preprint
+  topics: [multimodal]
+  links:
+    paper: "https://arxiv.org/abs/2510.12974"
+
+- title: "Balance Act: Mitigating Hubness in Cross-Modal Retrieval with Query and Gallery Banks"
+  authors: ["Yimu Wang", "Xiangru Jian", "Bo Xue"]
+  venue: "Conference on Empirical Methods in Natural Language Processing (EMNLP)"
+  venue_short: "EMNLP"
+  year: 2023
+  kind: conf
+  topics: [learning, multimodal]
+  awards: ["Oral"]
+  links:
+    paper: "https://aclanthology.org/2023.emnlp-main.652/"
+    code: "https://github.com/yimuwangcs/Better_Cross_Modal_Retrieval"
+
+- title: "InvGC: Robust Cross-Modal Retrieval by Inverse Graph Convolution"
+  authors: ["Xiangru Jian", "Yimu Wang"]
+  venue: "Findings of EMNLP 2023"
+  venue_short: "EMNLP F"
+  year: 2023
+  kind: conf
+  topics: [learning, graph, multimodal]
+  links:
+    paper: "https://aclanthology.org/2023.findings-emnlp.60/"
+    code: "https://github.com/yimuwangcs/Better_Cross_Modal_Retrieval"
+
+- title: "Roughness Index for Loss Landscapes of Neural Network Models of Partial Differential Equations"
+  authors: ["Keke Wu", "Xiangru Jian", "Rui Du", "Jingrun Chen", "Xiang Zhou"]
+  venue: "IEEE International Conference on Big Data (BigData)"
+  venue_short: "BigData"
+  year: 2023
+  kind: conf
+  topics: [learning]
+  awards: ["Oral"]
+  links:
+    paper: "https://ieeexplore.ieee.org/document/10386909/"
+
+- title: "Communication-Efficient Decentralized Online Continuous DR-Submodular Maximization"
+  authors: ["Qixin Zhang", "Zengde Deng", "Xiangru Jian", "Zaiyi Chen", "Haoyuan Hu", "Yu Yang"]
+  venue: "ACM International Conference on Information and Knowledge Management (CIKM)"
+  venue_short: "CIKM"
+  year: 2023
+  kind: conf
+  topics: [learning]
+  links:
+    paper: "https://doi.org/10.1145/3583780.3614817"
+
+- title: "A Pattern-based Subset Choice Model"
+  authors: ["Yu Yin*", "Xiangru Jian*", "Haoxiang Liu", "Wei Gong", "Yu Yang"]
+  venue: "Under review"
+  venue_short: "Preprint"
+  year: ""
+  kind: preprint
+  topics: [data, learning]
+  links: {}
