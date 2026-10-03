@@ -63,7 +63,7 @@ themes:
     works:
       - { name: "UI-Vision",       venue: "ICML '25",  url: "https://uivision.github.io/" }
       - { name: "GroundCUA",       venue: "ICLR '26",  url: "https://groundcua.github.io/" }
-      - { name: "CUA-Suite",       venue: "#1 HF paper", url: "https://cua-suite.github.io/" }
+      - { name: "CUA-Suite",       venue: "ICLR-W '26", url: "https://cua-suite.github.io/" }
       - { name: "StateAct",        venue: "preprint",  url: "https://arxiv.org/abs/2607.22798" }
       - { name: "MCP-Universe RL", venue: "preprint",  url: "https://mcp-universe.github.io/mcpu-rl" }
   - key: multimodal
@@ -83,7 +83,7 @@ themes:
 highlights:
   - { value: "500K+",  label: "Hugging Face downloads of the UI-Vision / GroundCUA / CUA-Suite series", url: "https://huggingface.co/datasets/ServiceNow/VideoCUA" }
   - { value: "3.9k ★", label: "GitHub stars for Paper2Poster", url: "https://paper2poster.github.io/" }
-  - { value: "#1",     label: "Hugging Face Paper of the Day (CUA-Suite)", url: "https://cua-suite.github.io/" }
+  - { value: "7.5M",   label: "Samples in BigDocs, the open multimodal document dataset I co-led (ICLR 2025)", url: "https://bigdocs.github.io/" }
   - { value: "3 Orals", label: "EMNLP 2023 · IEEE BigData 2023 · ICML 2025 MAS Workshop" }
 
 # ---- Experience & education ------------------------------------------------

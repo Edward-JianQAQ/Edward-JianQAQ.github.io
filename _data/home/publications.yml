@@ -9,8 +9,7 @@
 #   links:       paper / project / code / data (any can be omitted)
 
 - title: "RA-SQL: Relational Algebra as Deterministic Chain-of-Thought for Natural Language to SQL"
-  # TODO: full author list (no public version yet)
-  authors: ["Xiangru Jian", "et al."]
+  authors: ["Xiangru Jian", "Wei Pang", "Chao Zhang", "Xi He", "M. Tamer Özsu"]
   venue: "ACM SIGMOD International Conference on Management of Data (SIGMOD)"
   venue_short: "SIGMOD"
   year: 2027
