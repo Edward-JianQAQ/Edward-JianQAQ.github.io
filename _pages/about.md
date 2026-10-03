@@ -5,6 +5,9 @@ title: "Xiangru (Edward) Jian"
 redirect_from:
   - /about/
   - /about.html
+  - /publications/
+  - /talks/
+  - /teaching/
 # The homepage is rendered by _layouts/home.html. This file only holds the short bio
 # shown next to the photo. Everything else is data:
 #   _data/home/profile.yml       job-market card, research themes, experience, talks, teaching, service, honors

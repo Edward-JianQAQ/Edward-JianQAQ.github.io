@@ -11,7 +11,7 @@ locale                   : "en-US"
 title                    : "Xiangru Jian"
 title_separator          : "-"
 name                     : &name "Xiangru Jian"
-description              : &description "personal description"
+description              : &description "Xiangru (Edward) Jian, Ph.D. student at the University of Waterloo working on multimodal and agentic data management"
 url                      : https://edward-jianqaq.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "Edward-JianQAQ/Edward-JianQAQ.github.io"
@@ -172,6 +172,7 @@ exclude:
   - assets/js/plugins
   - assets/js/vendor
   - CHANGELOG
+  - CONTRIBUTING.md
   - Capfile
   - config
   - Dockerfile
@@ -305,6 +306,7 @@ plugins:
   - jekyll-feed
   - jekyll-gist
   - jekyll-paginate
+  - jekyll-redirect-from
   - jekyll-sitemap
   - jemoji
 
@@ -313,6 +315,7 @@ whitelist:
   - jekyll-feed
   - jekyll-gist
   - jekyll-paginate
+  - jekyll-redirect-from
   - jekyll-sitemap
   - jemoji
 
