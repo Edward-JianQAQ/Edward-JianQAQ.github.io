@@ -79,11 +79,16 @@ themes:
       - { name: "GraphOmni",    venue: "ICLR '26",    url: "https://gai-community.github.io/Graph-Omni/" }
       - { name: "TRL-Bench",    venue: "NeurIPS '26", url: "https://logo-cuhksz.github.io/trl-bench.github.io/" }
 
+# Intro line for the "Datasets & benchmarks" section (cards come from _data/home/datasets.yml)
+datasets_intro: >-
+  Much of my work builds the data that agents and multimodal models learn from and are measured on.
+  Every number below comes from the paper or the official release.
+
 # Short impact facts shown as chips under the research themes
 highlights:
   - { value: "500K+",  label: "Hugging Face downloads of the UI-Vision / GroundCUA / CUA-Suite series", url: "https://cua-suite.github.io/" }
   - { value: "3.9k ★", label: "GitHub stars for Paper2Poster", url: "https://github.com/Paper2Poster/Paper2Poster" }
-  - { value: "7.5M",   label: "Samples in BigDocs, the open multimodal document dataset I co-led (ICLR 2025)", url: "https://bigdocs.github.io/" }
+  - { count_of: datasets, label: "Open datasets and benchmarks I co-created, from documents and desktop GUIs to graphs and tables", url: "#datasets" }
   - { value: "3 Orals", label: "EMNLP 2023 · IEEE BigData 2023 · ICML 2025 MAS Workshop" }
 
 # ---- Experience & education ------------------------------------------------

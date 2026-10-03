@@ -1,0 +1,32 @@
+# PROVISIONAL — layout test only; numbers are being re-verified against primary sources.
+- name: "BigDocs"
+  domain: "Documents & code"
+  venue: "ICLR 2025"
+  role: "Co-first author · Project lead"
+  desc: "An open, license-permissive dataset for training multimodal models on document understanding and code generation."
+  stats:
+    - { value: "7.5M", label: "multimodal documents" }
+    - { value: "30", label: "tasks" }
+  links: { project: "https://bigdocs.github.io/", paper: "https://arxiv.org/abs/2412.04626", data: "https://huggingface.co/datasets/ServiceNow/BigDocs-7.5M" }
+
+- name: "GroundCUA"
+  domain: "Desktop GUI agents"
+  venue: "ICLR 2026"
+  role: ""
+  desc: "Human-annotated desktop grounding data; the GroundNext models trained on it reach state of the art on five benchmarks."
+  stats:
+    - { value: "3.56M", label: "UI element annotations" }
+    - { value: "56K", label: "screenshots" }
+    - { value: "87", label: "desktop apps" }
+  links: { project: "https://groundcua.github.io/", code: "https://github.com/ServiceNow/GroundCUA" }
+
+- name: "VideoCUA"
+  domain: "Desktop GUI agents"
+  venue: "CUA-Suite · 2026"
+  role: "Co-first author"
+  desc: "Expert video demonstrations of desktop tasks with cursor traces and reasoning annotations."
+  stats:
+    - { value: "~10K", label: "tasks" }
+    - { value: "55 h", label: "of 30 fps video" }
+    - { value: "87", label: "apps" }
+  links: { project: "https://cua-suite.github.io/", data: "https://huggingface.co/datasets/ServiceNow/VideoCUA" }

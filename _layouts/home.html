@@ -3,6 +3,7 @@
 {%- assign p = site.data.home.profile -%}
 {%- assign pubs = site.data.home.publications -%}
 {%- assign news = site.data.home.news -%}
+{%- assign datasets = site.data.home.datasets -%}
 {%- assign base = site.baseurl -%}
 {%- assign news_visible = 7 -%}
 <!doctype html>
@@ -65,6 +66,9 @@
     <ul class="navlinks">
       <li><a href="#top">About</a></li>
       <li><a href="#research">Research</a></li>
+      {%- if datasets.size > 0 %}
+      <li><a href="#datasets">Datasets</a></li>
+      {%- endif %}
       <li><a href="#news">News</a></li>
       <li><a href="#publications">Publications</a></li>
       <li><a href="#experience">Experience</a></li>
@@ -172,12 +176,48 @@
     <dl class="highlights">
       {%- for h in p.highlights %}
       <div class="highlight">
-        <dt>{% if h.url and h.url != "" %}<a href="{{ h.url }}">{{ h.value }}</a>{% else %}{{ h.value }}{% endif %}</dt>
+        {%- assign hval = h.value %}{% if h.count_of == "datasets" %}{% assign hval = datasets.size %}{% endif %}
+        <dt>{% if h.url and h.url != "" %}<a href="{{ h.url }}">{{ hval }}</a>{% else %}{{ hval }}{% endif %}</dt>
         <dd>{{ h.label }}</dd>
       </div>
       {%- endfor %}
     </dl>
   </section>
+
+  <!-- ============ Datasets & benchmarks ============ -->
+  {%- if datasets.size > 0 %}
+  <section id="datasets" class="section">
+    <div class="section__head">
+      <h2>Datasets &amp; benchmarks</h2>
+      <span class="section__aside section__aside--muted">{{ datasets.size }} released</span>
+    </div>
+    {%- if p.datasets_intro %}
+    <p class="section__intro">{{ p.datasets_intro }}</p>
+    {%- endif %}
+    <div class="datasets">
+      {%- for d in datasets %}
+      <article class="dataset">
+        <header class="dataset__head">
+          <span class="dataset__domain">{{ d.domain }}</span>
+          <h3 class="dataset__name">{% if d.links.project and d.links.project != "" %}<a href="{{ d.links.project }}">{{ d.name }}</a>{% else %}{{ d.name }}{% endif %}</h3>
+          <p class="dataset__meta"><span class="dataset__venue">{{ d.venue }}</span>{% if d.role and d.role != "" %}<span class="dataset__role">{{ d.role }}</span>{% endif %}</p>
+        </header>
+        <p class="dataset__desc">{{ d.desc }}</p>
+        <dl class="dataset__stats">
+          {%- for st in d.stats %}
+          <div class="dstat"><dt>{{ st.value }}</dt><dd>{{ st.label }}</dd></div>
+          {%- endfor %}
+        </dl>
+        <div class="dataset__links">
+          {%- if d.links.data and d.links.data != "" %}<a class="lbtn" href="{{ d.links.data }}"><svg class="i"><use href="#i-data"/></svg>Data</a>{% endif -%}
+          {%- if d.links.paper and d.links.paper != "" %}<a class="lbtn" href="{{ d.links.paper }}"><svg class="i"><use href="#i-file"/></svg>Paper</a>{% endif -%}
+          {%- if d.links.code and d.links.code != "" %}<a class="lbtn" href="{{ d.links.code }}"><svg class="i"><use href="#i-code"/></svg>Code</a>{% endif -%}
+        </div>
+      </article>
+      {%- endfor %}
+    </div>
+  </section>
+  {%- endif %}
 
   <!-- ============ News ============ -->
   <section id="news" class="section">
