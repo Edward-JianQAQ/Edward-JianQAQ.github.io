@@ -6,6 +6,19 @@
 {%- assign datasets = site.data.home.datasets -%}
 {%- assign base = site.baseurl -%}
 {%- assign news_visible = 7 -%}
+{%- comment -%}
+  Lead-author count for the highlights: peer-reviewed papers (kind conf / journal / demo, i.e. not
+  preprint or workshop) where Xiangru Jian is listed first, marked * (co-first), or marked ✉
+  (corresponding). Set `lead: false` on a publication to leave it out.
+{%- endcomment -%}
+{%- assign lead_total = 0 -%}{%- assign lead_corr = 0 -%}
+{%- for pub in pubs -%}
+  {%- if pub.kind == 'preprint' or pub.kind == 'workshop' or pub.lead == false -%}{%- continue -%}{%- endif -%}
+  {%- assign mine = '' -%}{%- assign mine_pos = 0 -%}
+  {%- for a in pub.authors -%}{%- if a contains 'Xiangru Jian' -%}{%- assign mine = a -%}{%- assign mine_pos = forloop.index -%}{%- endif -%}{%- endfor -%}
+  {%- if mine_pos == 1 or mine contains '*' or mine contains '✉' -%}{%- assign lead_total = lead_total | plus: 1 -%}{%- endif -%}
+  {%- if mine contains '✉' -%}{%- assign lead_corr = lead_corr | plus: 1 -%}{%- endif -%}
+{%- endfor -%}
 <!doctype html>
 <html lang="en">
 <head>
@@ -176,9 +189,11 @@
     <dl class="highlights">
       {%- for h in p.highlights %}
       <div class="highlight">
-        {%- assign hval = h.value %}{% if h.count_of == "datasets" %}{% assign hval = datasets.size %}{% endif %}
+        {%- assign hval = h.value %}{% assign hlabel = h.label %}
+        {%- if h.count_of == "datasets" %}{% assign hval = datasets.size %}{% endif %}
+        {%- if h.count_of == "lead_papers" %}{% assign hval = lead_total %}{% assign hlabel = h.label | replace: "{corr}", lead_corr %}{% endif %}
         <dt>{% if h.url and h.url != "" %}<a href="{{ h.url }}">{{ hval }}</a>{% else %}{{ hval }}{% endif %}</dt>
-        <dd>{{ h.label }}</dd>
+        <dd>{{ hlabel }}</dd>
       </div>
       {%- endfor %}
     </dl>

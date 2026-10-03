@@ -87,8 +87,13 @@ datasets_intro: >-
 # Short impact facts shown as chips under the research themes
 highlights:
   - { value: "500K+",  label: "Hugging Face downloads of the UI-Vision / GroundCUA / CUA-Suite series", url: "https://cua-suite.github.io/" }
-  - { value: "3.9k ★", label: "GitHub stars for Paper2Poster", url: "https://github.com/Paper2Poster/Paper2Poster" }
-  - { count_of: datasets, label: "Open datasets and benchmarks I co-created, from documents and desktop GUIs to graphs and tables", url: "#datasets" }
+  # GitHub stars of the public code repos of my papers, as of 2026-10-03:
+  # Paper2Poster 3,977 · GroundCUA 135 · GraphOmni 81 · UI-Vision 33 · FORGE 13 · TRL-Bench 10 ·
+  # AlignVLM 8 · Better_Cross_Modal_Retrieval (Balance Act, InvGC) 6 · InteracSPARQL 3 · GraphAbstract 2
+  # = 4,268. MCP-Universe (603) is left out because most of its stars predate the RL extension.
+  - { value: "4.2k+ ★", label: "GitHub stars across the code releases of my papers, led by Paper2Poster", url: "https://github.com/Paper2Poster/Paper2Poster" }
+  # value is computed from publications.yml; "{corr}" is replaced with the corresponding-author count
+  - { count_of: lead_papers, label: "Published papers as first, co-first, or corresponding author ({corr} as corresponding author)", url: "#publications" }
   - { value: "3 Orals", label: "EMNLP 2023 · IEEE BigData 2023 · ICML 2025 MAS Workshop" }
 
 # ---- Experience & education ------------------------------------------------
